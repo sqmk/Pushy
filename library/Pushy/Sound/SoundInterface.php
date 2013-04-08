@@ -15,16 +15,16 @@ namespace Pushy\Sound;
 interface SoundInterface
 {
 	/**
-	 * Return sound parameter value on string conversion
+	 * Return sound name value on string conversion
 	 *
-	 * @return string Sound parameter value
+	 * @return string Sound name
 	 */
-	public function getParamValue();
+	public function getName();
 
 	/**
-	 * Return sound parameter value on string conversion
+	 * Return sound name on string conversion
 	 *
-	 * @return string Sound parameter value
+	 * @return string Sound name
 	 */
 	public function __toString();
 }
