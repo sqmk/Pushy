@@ -15,6 +15,11 @@ namespace Pushy\Sound;
 abstract class AbstractSound implements SoundInterface
 {
 	/**
+	 * Name of sound
+	 */
+	const NAME = 'invalid';
+
+	/**
 	 * Get sound name
 	 *
 	 * @return string Sound name
