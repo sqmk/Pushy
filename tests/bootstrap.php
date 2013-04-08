@@ -1,4 +1,4 @@
 <?php
 
 $autoloader = require __DIR__ . '/../vendor/autoload.php';
-$autoloader->add('PushyTests', __DIR__);
+$autoloader->add('PushyTest', __DIR__);
