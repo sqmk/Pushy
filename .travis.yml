@@ -1,14 +1,14 @@
 language: php
 
 php:
-	- 5.4
+    - 5.4
 
 before_install:
-	- composer install --dev
+    - composer install --dev
 
 script:
-	- ./vendor/bin/phpcs --standard=tests/phpcs.xml library/
-	- ./vendor/bin/phpunit --configuration=tests
+    - ./vendor/bin/phpcs --standard=tests/phpcs.xml library/
+    - ./vendor/bin/phpunit --configuration=tests
 
 notifications:
-	email: false
+    email: false
