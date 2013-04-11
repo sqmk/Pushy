@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class PianoBar extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'pianobar';
+    /**
+     * Name of sound
+     */
+    const NAME = 'pianobar';
 }

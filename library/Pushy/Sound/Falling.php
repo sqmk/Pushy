@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Falling extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'falling';
+    /**
+     * Name of sound
+     */
+    const NAME = 'falling';
 }

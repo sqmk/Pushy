@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Echo extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'echo';
+    /**
+     * Name of sound
+     */
+    const NAME = 'echo';
 }

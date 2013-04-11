@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class None extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'none';
+    /**
+     * Name of sound
+     */
+    const NAME = 'none';
 }

@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class TugBoat extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'tugboat';
+    /**
+     * Name of sound
+     */
+    const NAME = 'tugboat';
 }

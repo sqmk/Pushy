@@ -14,28 +14,28 @@ namespace Pushy\Sound;
  */
 abstract class AbstractSound implements SoundInterface
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'invalid';
+    /**
+     * Name of sound
+     */
+    const NAME = 'invalid';
 
-	/**
-	 * Get sound name
-	 *
-	 * @return string Sound name
-	 */
-	public function getName()
-	{
-		return static::NAME;
-	}
+    /**
+     * Get sound name
+     *
+     * @return string Sound name
+     */
+    public function getName()
+    {
+        return static::NAME;
+    }
 
-	/**
-	 * Return sound name on string conversion
-	 *
-	 * @return string Sound name
-	 */
-	public function __toString()
-	{
-		return $this->getName();
-	}
+    /**
+     * Return sound name on string conversion
+     *
+     * @return string Sound name
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 }

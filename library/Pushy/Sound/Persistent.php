@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Persistent extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'persistent';
+    /**
+     * Name of sound
+     */
+    const NAME = 'persistent';
 }

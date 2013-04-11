@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Cosmic extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'cosmic';
+    /**
+     * Name of sound
+     */
+    const NAME = 'cosmic';
 }

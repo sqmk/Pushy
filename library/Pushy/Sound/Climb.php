@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Climb extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'climb';
+    /**
+     * Name of sound
+     */
+    const NAME = 'climb';
 }

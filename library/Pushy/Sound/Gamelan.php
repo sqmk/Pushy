@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Gamelan extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'gamelan';
+    /**
+     * Name of sound
+     */
+    const NAME = 'gamelan';
 }

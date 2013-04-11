@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class CashRegister extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'cashregister';
+    /**
+     * Name of sound
+     */
+    const NAME = 'cashregister';
 }

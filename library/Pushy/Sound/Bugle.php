@@ -14,8 +14,8 @@ namespace Pushy\Sound;
  */
 class Bugle extends AbstractSound
 {
-	/**
-	 * Name of sound
-	 */
-	const NAME = 'bugle';
+    /**
+     * Name of sound
+     */
+    const NAME = 'bugle';
 }
