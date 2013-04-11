@@ -10,12 +10,12 @@
 namespace Pushy\Sound;
 
 /**
- * Persistent sound
+ * Gamelan sound
  */
-class Persistent extends AbstractSound
+class GamelanSound extends AbstractSound
 {
     /**
      * Name of sound
      */
-    const NAME = 'persistent';
+    const NAME = 'gamelan';
 }

@@ -10,12 +10,12 @@
 namespace Pushy\Sound;
 
 /**
- * Echo sound
+ * CashRegister sound
  */
-class Echo extends AbstractSound
+class CashRegisterSound extends AbstractSound
 {
     /**
      * Name of sound
      */
-    const NAME = 'echo';
+    const NAME = 'cashregister';
 }

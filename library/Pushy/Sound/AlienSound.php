@@ -10,12 +10,12 @@
 namespace Pushy\Sound;
 
 /**
- * TugBoat sound
+ * Alien sound
  */
-class TugBoat extends AbstractSound
+class AlienSound extends AbstractSound
 {
     /**
      * Name of sound
      */
-    const NAME = 'tugboat';
+    const NAME = 'alien';
 }

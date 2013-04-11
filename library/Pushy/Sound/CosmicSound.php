@@ -10,12 +10,12 @@
 namespace Pushy\Sound;
 
 /**
- * Magic sound
+ * Cosmic sound
  */
-class Magic extends AbstractSound
+class CosmicSound extends AbstractSound
 {
     /**
      * Name of sound
      */
-    const NAME = 'magic';
+    const NAME = 'cosmic';
 }

@@ -10,12 +10,12 @@
 namespace Pushy\Sound;
 
 /**
- * Gamelan sound
+ * Climb sound
  */
-class Gamelan extends AbstractSound
+class ClimbSound extends AbstractSound
 {
     /**
      * Name of sound
      */
-    const NAME = 'gamelan';
+    const NAME = 'climb';
 }
