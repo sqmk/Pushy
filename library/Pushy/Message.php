@@ -26,6 +26,20 @@ class Message
     protected $user;
 
     /**
+     * Message
+     *
+     * @var string
+     */
+    protected $message;
+
+    /**
+     * Title
+     *
+     * @var string
+     */
+    protected $title;
+
+    /**
      * Notification sound
      *
      * @var SoundInterface
@@ -51,6 +65,34 @@ class Message
     public function setUser(User $user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message Message
+     *
+     * @return self This object
+     */
+    public function setMessage($message)
+    {
+        $this->message = (string) $message;
+
+        return $this;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title Title
+     *
+     * @return self This object
+     */
+    public function setTitle($title)
+    {
+        $this->title = (string) $title;
 
         return $this;
     }
