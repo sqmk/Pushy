@@ -19,6 +19,26 @@ use Pushy\Sound\PushoverSound;
 class Message
 {
     /**
+     * Priority: Low
+     */
+    const PRIORITY_LOW = -1;
+
+    /**
+     * Priority: Normal
+     */
+    const PRIORITY_NORMAL = 0;
+
+    /**
+     * Priority: High
+     */
+    const PRIORITY_HIGH = 1;
+
+    /**
+     * Priority: Emergency
+     */
+    const PRIORITY_EMERGENCY = 2;
+
+    /**
      * User object
      *
      * @var User
@@ -65,7 +85,8 @@ class Message
      */
     public function __construct()
     {
-        // Set default sound
+        // Set defaults
+        $this->setPriority(self::PRIORITY_NORMAL);
         $this->setSound(new PushoverSound);
     }
 
@@ -123,6 +144,20 @@ class Message
     {
         $this->url      = (string) $url;
         $this->urlTitle = $urlTitle !== null ? (string) $urlTitle : null;
+
+        return $this;
+    }
+
+    /**
+     * Set priority
+     *
+     * @param int $priority Priority number
+     *
+     * @return self This object
+     */
+    public function setPriority($priority = 'test')
+    {
+        $this->priority = (int) $priority;
 
         return $this;
     }
