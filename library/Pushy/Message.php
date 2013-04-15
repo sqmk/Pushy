@@ -40,6 +40,20 @@ class Message
     protected $title;
 
     /**
+     * URL
+     *
+     * @var string
+     */
+    protected $url;
+
+    /**
+     * URL Title
+     *
+     * @var string
+     */
+    protected $urlTitle;
+
+    /**
      * Notification sound
      *
      * @var SoundInterface
@@ -93,6 +107,22 @@ class Message
     public function setTitle($title)
     {
         $this->title = (string) $title;
+
+        return $this;
+    }
+
+    /**
+     * Set URL
+     *
+     * @param string $url      URL
+     * @param string $urlTitle URL title
+     *
+     * @return self This object
+     */
+    public function setUrl($url, $urlTitle = null)
+    {
+        $this->url      = (string) $url;
+        $this->urlTitle = $urlTitle !== null ? (string) $urlTitle : null;
 
         return $this;
     }
