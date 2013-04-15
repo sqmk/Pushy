@@ -9,6 +9,7 @@
 
 namespace Pushy;
 
+use Pushy\User;
 use Pushy\Sound\SoundInterface;
 use Pushy\Sound\PushoverSound;
 
@@ -17,6 +18,13 @@ use Pushy\Sound\PushoverSound;
  */
 class Message
 {
+    /**
+     * User object
+     *
+     * @var User
+     */
+    protected $user;
+
     /**
      * Notification sound
      *
@@ -34,12 +42,30 @@ class Message
     }
 
     /**
+     * Set user
+     *
+     * @param User $user User object
+     *
+     * @return self This object
+     */
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
      * Set sound
      *
      * @param SoundInterface $sound Notification sound
+     *
+     * @return self This object
      */
     public function setSound(SoundInterface $sound)
     {
         $this->sound = $sound;
+
+        return $this;
     }
 }
