@@ -10,6 +10,8 @@
 namespace Pushy;
 
 use Pushy\User;
+use Pushy\Priority\PriorityInterface;
+use Pushy\Priority\NormalPriority;
 use Pushy\Sound\SoundInterface;
 use Pushy\Sound\PushoverSound;
 
@@ -18,26 +20,6 @@ use Pushy\Sound\PushoverSound;
  */
 class Message
 {
-    /**
-     * Priority: Low
-     */
-    const PRIORITY_LOW = -1;
-
-    /**
-     * Priority: Normal
-     */
-    const PRIORITY_NORMAL = 0;
-
-    /**
-     * Priority: High
-     */
-    const PRIORITY_HIGH = 1;
-
-    /**
-     * Priority: Emergency
-     */
-    const PRIORITY_EMERGENCY = 2;
-
     /**
      * User object
      *
@@ -58,6 +40,13 @@ class Message
      * @var string
      */
     protected $title;
+
+    /**
+     * Priority
+     *
+     * @var PriorityInterface
+     */
+    protected $priority;
 
     /**
      * URL
@@ -86,7 +75,7 @@ class Message
     public function __construct()
     {
         // Set defaults
-        $this->setPriority(self::PRIORITY_NORMAL);
+        $this->setPriority(new NormalPriority);
         $this->setSound(new PushoverSound);
     }
 
@@ -151,13 +140,13 @@ class Message
     /**
      * Set priority
      *
-     * @param int $priority Priority number
+     * @param PriorityInterface $priority Priority number
      *
      * @return self This object
      */
-    public function setPriority($priority = 'test')
+    public function setPriority(PriorityInterface$priority)
     {
-        $this->priority = (int) $priority;
+        $this->priority = $priority;
 
         return $this;
     }
