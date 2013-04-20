@@ -9,8 +9,6 @@
 
 namespace PushyTest\Sound;
 
-use Pushy\Sound\AbstractSound;
-
 /**
  * Tests for Pushy\Sound\AbstractSound
  */
@@ -29,7 +27,7 @@ class AbstractSoundTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->sound = $this->getMockForAbstractClass(
-            'Pushy\Sound\AbstractSound'
+            '\Pushy\Sound\AbstractSound'
         );
     }
 
