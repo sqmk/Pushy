@@ -34,6 +34,13 @@ class EmergencyPriority extends AbstractPriority
     protected $expire = 86400;
 
     /**
+     * Callback URL
+     *
+     * @var string
+     */
+    protected $callback;
+
+    /**
      * Set retry
      *
      * @param int $seconds Seconds
@@ -68,7 +75,7 @@ class EmergencyPriority extends AbstractPriority
      */
     public function setCallback($url)
     {
-        $this->expire = (string) $url;
+        $this->callback = (string) $url;
 
         return $this;
     }
