@@ -15,38 +15,62 @@ namespace Pushy;
 class User
 {
     /**
-     * User's key
+     * User's Id
      *
      * @var string
      */
-    protected $key;
+    protected $id;
 
     /**
      * User's device name
      *
      * @var string
      */
-    protected $deviceName = null;
+    protected $deviceName;
 
     /**
      * Instantiate a user object
      *
-     * @param string $userKey User key
+     * @param string $id User Id
      */
-    public function __construct($userKey)
+    public function __construct($id = null)
     {
-        // Set user key
-        $this->setKey($userKey);
+        // Set user Id
+        $this->setId($id);
     }
 
     /**
-     * Set user key
+     * Get User Id
+     *
+     * @return string User Id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set user Id
      *
      * @param string $key User key
+     *
+     * @return self This object
      */
-    protected function setKey($key)
+    public function setId($id)
     {
-        $this->key = (string) $key;
+        $this->id = (string) $id;
+
+        return $this;
+    }
+
+    /**
+     * Get device name
+     *
+     * @return string Device name
+     */
+    public function getDeviceName()
+    {
+        return $this->deviceName;
     }
 
     /**
@@ -56,7 +80,7 @@ class User
      *
      * @return self This object
      */
-    protected function setDeviceName($deviceName)
+    public function setDeviceName($deviceName)
     {
         $this->deviceName = (string) $deviceName;
 
