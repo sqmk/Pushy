@@ -118,4 +118,57 @@ class MessageTest extends \PHPUnit_Framework_TestCase
             '\Pushy\Sound\SoundInterface', 'sound', $this->message
         );
     }
+
+    /**
+     * Test: Set message
+     *
+     * @covers Pushy\Message::setMessage
+     */
+    public function testSetMessage()
+    {
+        $message = 'PHPUnit Test Message';
+
+        $this->message->setMessage($message);
+
+        $this->assertAttributeEquals(
+            $message, 'message', $this->message
+        );
+    }
+
+    /**
+     * Test: Set title
+     *
+     * @covers Pushy\Message::setTitle
+     */
+    public function testSetTitle()
+    {
+        $title = 'PHPUnit Test Title';
+
+        $this->message->setTitle($title);
+
+        $this->assertAttributeEquals(
+            $title, 'title', $this->message
+        );
+    }
+
+    /**
+     * Test: Set URL
+     *
+     * @covers Pushy\Message::setUrl
+     */
+    public function testSetUrl()
+    {
+        $url      = 'http://example.com';
+        $urlTitle = 'PHPUnit Test URL Title';
+
+        $this->message->setUrl($url, $urlTitle);
+
+        $this->assertAttributeEquals(
+            $url, 'url', $this->message
+        );
+
+        $this->assertAttributeEquals(
+            $urlTitle, 'urlTitle', $this->message
+        );
+    }
 }
