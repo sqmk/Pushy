@@ -144,7 +144,7 @@ class Message
      *
      * @return self This object
      */
-    public function setPriority(PriorityInterface$priority)
+    public function setPriority(PriorityInterface $priority)
     {
         $this->priority = $priority;
 
