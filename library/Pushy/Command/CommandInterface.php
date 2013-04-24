@@ -16,12 +16,12 @@ use Pushy\Client;
  */
 interface CommandInterface
 {
-	/**
-	 * Send command
-	 *
-	 * @param Client $client Pushy client
-	 *
-	 * @return mixed Command's return value
-	 */
+    /**
+     * Send command
+     *
+     * @param Client $client Pushy client
+     *
+     * @return mixed Command's return value
+     */
     public function send(Client $client);
 }
