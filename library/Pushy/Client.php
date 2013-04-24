@@ -9,9 +9,6 @@
 
 namespace Pushy;
 
-use Pushy\User;
-use Pushy\Message;
-
 /**
  * Client for Pushover
  */
