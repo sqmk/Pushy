@@ -139,6 +139,11 @@ class RequestMessage
      */
     public function getJsonBody()
     {
+        // Return null if no data
+        if (!$this->jsonFields) {
+            return;
+        }
+
         return json_encode($this->jsonFields);
     }
 
