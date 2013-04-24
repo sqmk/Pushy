@@ -34,11 +34,18 @@ class RequestMessage
     protected $path;
 
     /**
-     * JSON Fields
+     * Query params
      *
      * @var array
      */
-    protected $jsonFields = [];
+    protected $queryParams;
+
+    /**
+     * JSON Fields
+     *
+     * @var null|array
+     */
+    protected $jsonFields;
 
     /**
      * Get request method
@@ -80,6 +87,31 @@ class RequestMessage
     public function setPath($path)
     {
         $this->path = (string) $path;
+
+        return $this;
+    }
+
+    /**
+     * Get query params
+     *
+     * @return string URL-encoded query params
+     */
+    public function getQueryParams()
+    {
+        return http_build_query($this->queryParams);
+    }
+
+    /**
+     * Set query param
+     *
+     * @param string $paramName Param name
+     * @param mixed  $value     Value
+     *
+     * @return self This object
+     */
+    public function setQueryParam($paramName, $value)
+    {
+        $this->queryParams[(string) $paramName] = $value;
 
         return $this;
     }
