@@ -9,7 +9,6 @@
 
 namespace Pushy;
 
-use Pushy\User;
 use Pushy\Priority\PriorityInterface;
 use Pushy\Priority\NormalPriority;
 use Pushy\Sound\SoundInterface;
