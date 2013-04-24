@@ -55,6 +55,6 @@ class VerifyUser implements CommandInterface
             $requestMessage->setQueryParam('device', $device);
         }
 
-        $client->getTransport()->sendRequest($requestMessage);
+        return $client->getTransport()->sendRequest($requestMessage);
     }
 }

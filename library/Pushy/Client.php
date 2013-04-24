@@ -12,6 +12,7 @@ namespace Pushy;
 use Pushy\Transport\Http;
 use Pushy\Transport\TransportInterface;
 use Pushy\Command\CommandInterface;
+use Pushy\Command\VerifyUser;
 
 /**
  * Client for Pushover
@@ -40,6 +41,16 @@ class Client
     public function __construct($apiToken)
     {
         $this->setApiToken($apiToken);
+    }
+
+    /**
+     * Get API token
+     *
+     * @return string API Token
+     */
+    public function getApiToken()
+    {
+        return $this->apiToken;
     }
 
     /**
@@ -72,6 +83,7 @@ class Client
      */
     public function verifyUser(User $user)
     {
+        return (new VerifyUser($user))->send($this);
     }
 
     /**
