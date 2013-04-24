@@ -85,6 +85,16 @@ class RequestMessage
     }
 
     /**
+     * Get full request URL
+     *
+     * @return string Full request URL
+     */
+    public function getFullUrl()
+    {
+        return self::API_DOMAIN . $this->getPath();
+    }
+
+    /**
      * Get JSON body
      *
      * @return string JSON
