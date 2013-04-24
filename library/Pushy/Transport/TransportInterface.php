@@ -15,16 +15,11 @@ namespace Pushy\Transport;
 interface TransportInterface
 {
     /**
-     * Instantiate a transport object
+     * Send a request
      *
      * @param RequestMessage $requestMessage Request message
-     */
-    public function __construct(RequestMessage $requestMessage);
-
-    /**
-     * Send a request
      *
      * @return array Response data
      */
-    public function sendRequest();
+    public function sendRequest(RequestMessage $requestMessage);
 }
