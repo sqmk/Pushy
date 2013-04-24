@@ -35,9 +35,9 @@ class Http implements TransportInterface
 
         // Get response body, code, content type
         $response = [
-            'body'         => curl_exec($this->curl),
-            'code'         => curl_getinfo($this->curl, CURLINFO_HTTP_CODE),
-            'content_type' => curl_getinfo($this->curl, CURLINFO_CONTENT_TYPE),
+            'body'         => curl_exec($curl),
+            'code'         => curl_getinfo($curl, CURLINFO_HTTP_CODE),
+            'content_type' => curl_getinfo($curl, CURLINFO_CONTENT_TYPE),
         ];
 
         curl_close($curl);
