@@ -11,6 +11,7 @@ namespace Pushy;
 
 use Pushy\Transport\Http;
 use Pushy\Transport\TransportInterface;
+use Pushy\Command\CommandInterface;
 
 /**
  * Client for Pushover

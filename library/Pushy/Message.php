@@ -15,7 +15,7 @@ use Pushy\Sound\SoundInterface;
 use Pushy\Sound\PushoverSound;
 
 /**
- * Message for Pushover
+ * Message
  */
 class Message
 {

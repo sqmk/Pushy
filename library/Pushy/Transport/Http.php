@@ -10,7 +10,7 @@
 namespace Pushy\Transport;
 
 /**
- * HTTP Client for Pushover
+ * Basic HTTP Client
  */
 class Http implements TransportInterface
 {

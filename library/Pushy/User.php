@@ -10,7 +10,7 @@
 namespace Pushy;
 
 /**
- * User for Pushover
+ * User
  */
 class User
 {
