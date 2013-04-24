@@ -54,5 +54,7 @@ class VerifyUser implements CommandInterface
         if ($device = $this->user->getDeviceName()) {
             $requestMessage->setQueryParam('device', $device);
         }
+
+        $client->getTransport()->sendRequest($requestMessage);
     }
 }
