@@ -123,7 +123,13 @@ class RequestMessage
      */
     public function getFullUrl()
     {
-        return self::API_DOMAIN . $this->getPath();
+        $fullPath = self::API_DOMAIN . $this->getPath();
+
+        if ($query = $this->getQueryParams()) {
+            $fullPath .= "?{$query}";
+        }
+
+        return $fullPath;
     }
 
     /**
