@@ -46,6 +46,7 @@ class VerifyUser implements CommandInterface
     {
         // Create request message
         $requestMessage = (new RequestMessage)
+            ->setMethod('POST')
             ->setPath('users/validate.json')
             ->setQueryParam('token', $client->getApiToken())
             ->setQueryParam('user', $this->user->getId());
