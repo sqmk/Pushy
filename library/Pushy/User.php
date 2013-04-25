@@ -31,12 +31,14 @@ class User
     /**
      * Instantiate a user object
      *
-     * @param string $id User Id
+     * @param string $id         User Id
+     * @param string $deviceName Device name
      */
-    public function __construct($id = null)
+    public function __construct($id = null, $deviceName = null)
     {
-        // Set user Id
+        // Set user Id and device
         $this->setId($id);
+        $this->setDeviceName($deviceName);
     }
 
     /**
