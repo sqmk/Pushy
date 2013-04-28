@@ -56,6 +56,9 @@ class VerifyUser implements CommandInterface
             $requestMessage->setQueryParam('device', $device);
         }
 
-        return $client->getTransport()->sendRequest($requestMessage);
+        // Send request, and if no exception, user is valid
+        $client->getTransport()->sendRequest($requestMessage);
+
+        return true;
     }
 }
