@@ -9,6 +9,9 @@
 
 namespace Pushy\Transport;
 
+use Pushy\Transport\Exception\ConnectionException;
+use Pushy\Transport\Exception\ApiException;
+
 /**
  * Basic HTTP Client
  */
@@ -33,15 +36,22 @@ class Http implements TransportInterface
             curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
         }
 
-        // Get response body, code, content type
-        $response = [
-            'body'         => curl_exec($curl),
-            'code'         => curl_getinfo($curl, CURLINFO_HTTP_CODE),
-            'content_type' => curl_getinfo($curl, CURLINFO_CONTENT_TYPE),
-        ];
+        // Get response body and status code
+        $jsonResponse = json_decode(curl_exec($curl));
+        $statusCode   = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
         curl_close($curl);
 
-        return $response;
+        // Throw connection exception if no status code or json response
+        if ($jsonResponse === NULL || $statusCode == 0) {
+            throw new ConnectionException;
+        }
+
+        // Throw API exception if unexpected status code
+        if ($statusCode !== 200) {
+            throw new ApiException($jsonResponse->errors[0]);
+        }
+
+        return $jsonResponse;
     }
 }
