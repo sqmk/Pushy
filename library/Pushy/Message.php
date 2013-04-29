@@ -79,6 +79,16 @@ class Message
     }
 
     /**
+     * Get user
+     *
+     * @return User User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
      * Set user
      *
      * @param User $user User object
@@ -90,6 +100,16 @@ class Message
         $this->user = $user;
 
         return $this;
+    }
+
+    /**
+     * Get message
+     *
+     * @return string Message
+     */
+    public function getMessage()
+    {
+        return $this->message;
     }
 
     /**
@@ -107,6 +127,16 @@ class Message
     }
 
     /**
+     * Get title
+     *
+     * @return string Title
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
      * Set title
      *
      * @param string $title Title
@@ -118,6 +148,26 @@ class Message
         $this->title = (string) $title;
 
         return $this;
+    }
+
+    /**
+     * Get URL
+     *
+     * @return string URL
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Get URL Title
+     *
+     * @return string URL title
+     */
+    public function getUrlTitle()
+    {
+        return $this->urlTitle;
     }
 
     /**
@@ -137,6 +187,16 @@ class Message
     }
 
     /**
+     * Get priority
+     *
+     * @return PriorityInterface Priority
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
      * Set priority
      *
      * @param PriorityInterface $priority Priority number
@@ -148,6 +208,16 @@ class Message
         $this->priority = $priority;
 
         return $this;
+    }
+
+    /**
+     * Get sound
+     *
+     * @return SoundInterface Sound
+     */
+    public function getSound()
+    {
+        return $this->sound;
     }
 
     /**
