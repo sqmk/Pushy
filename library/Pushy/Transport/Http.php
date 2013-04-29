@@ -43,7 +43,7 @@ class Http implements TransportInterface
         curl_close($curl);
 
         // Throw connection exception if no status code or json response
-        if ($jsonResponse === NULL || $statusCode == 0) {
+        if ($jsonResponse === null || $statusCode == 0) {
             throw new ConnectionException;
         }
 

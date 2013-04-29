@@ -12,4 +12,6 @@ namespace Pushy\Transport\Exception;
 /**
  * Connection error
  */
-class ConnectionException extends \Exception {}
+class ConnectionException extends \Exception
+{
+}

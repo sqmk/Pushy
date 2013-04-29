@@ -12,4 +12,6 @@ namespace Pushy\Transport\Exception;
 /**
  * Standard API error
  */
-class ApiException extends \Exception {}
+class ApiException extends \Exception
+{
+}
