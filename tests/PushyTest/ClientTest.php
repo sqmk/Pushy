@@ -44,9 +44,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->client      = new Client('apikey123');
-        $this->mockMessage = $this->getMock('\Pushy\Message');
-        $this->mockUser    = $this->getMock('\Pushy\User');
+        $this->mockMessage   = $this->getMock('\Pushy\Message');
+        $this->mockUser      = $this->getMock('\Pushy\User');
+        $this->mockTransport = $this->getMock('\Pushy\Transport\TransportInterface');
+
+        $this->client = new Client('apikey123');
+        $this->client->setTransport($this->mockTransport);
     }
 
     /**
