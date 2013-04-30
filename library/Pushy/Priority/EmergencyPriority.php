@@ -41,6 +41,16 @@ class EmergencyPriority extends AbstractPriority
     protected $callback;
 
     /**
+     * Get retry
+     *
+     * @return int Seconds
+     */
+    public function getRetry()
+    {
+        return $this->retry;
+    }
+
+    /**
      * Set retry
      *
      * @param int $seconds Seconds
@@ -52,6 +62,16 @@ class EmergencyPriority extends AbstractPriority
         $this->retry = (int) $seconds;
 
         return $this;
+    }
+
+    /**
+     * Get expire
+     *
+     * @return int Seconds
+     */
+    public function getExpire()
+    {
+        return $this->expire;
     }
 
     /**
@@ -69,6 +89,16 @@ class EmergencyPriority extends AbstractPriority
     }
 
     /**
+     * Get callback
+     *
+     * @return string Callback URL
+     */
+    public function getCallback()
+    {
+        return $this->callback;
+    }
+
+    /**
      * Set callback URL
      *
      * @param string $url Callback URL
@@ -78,5 +108,20 @@ class EmergencyPriority extends AbstractPriority
         $this->callback = (string) $url;
 
         return $this;
+    }
+
+    /**
+     * Get API parameters.
+     *
+     * @return array Parameter list.
+     */
+    public function getApiParameters()
+    {
+        return [
+            'priority' => $this->getCode(),
+            'retry'    => $this->getRetry(),
+            'expire'   => $this->getExpire(),
+            'callback' => $this->getCallback(),
+        ];
     }
 }
