@@ -12,6 +12,7 @@ namespace Pushy;
 use Pushy\Transport\Http;
 use Pushy\Transport\TransportInterface;
 use Pushy\Command\CommandInterface;
+use Pushy\Command\SendMessage;
 use Pushy\Command\VerifyUser;
 
 /**
@@ -71,15 +72,20 @@ class Client
      * Send a message
      *
      * @param Message $message Message
+     *
+     * @return mixed
      */
     public function sendMessage(Message $message)
     {
+        return (new SendMessage($message))->send($this);
     }
 
     /**
      * Verify user
      *
      * @param User $user User
+     *
+     * @return bool TRUE if user is valid
      */
     public function verifyUser(User $user)
     {
