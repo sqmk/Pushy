@@ -77,10 +77,13 @@ class Message
 
     /**
      * Instantiate a message object
+     *
+     * @param string Message message
      */
-    public function __construct()
+    public function __construct($message = null)
     {
         // Set defaults
+        $this->setMessage($message);
         $this->setPriority(new NormalPriority);
         $this->setTimestamp();
         $this->setSound(new PushoverSound);
