@@ -62,6 +62,13 @@ class Message
     protected $urlTitle;
 
     /**
+     * Timestamp
+     *
+     * @var int
+     */
+    protected $timestamp;
+
+    /**
      * Notification sound
      *
      * @var SoundInterface
@@ -75,6 +82,7 @@ class Message
     {
         // Set defaults
         $this->setPriority(new NormalPriority);
+        $this->setTimestamp();
         $this->setSound(new PushoverSound);
     }
 
@@ -206,6 +214,32 @@ class Message
     public function setPriority(PriorityInterface $priority)
     {
         $this->priority = $priority;
+
+        return $this;
+    }
+
+    /**
+     * Get timestamp
+     *
+     * @return int Timestamp
+     */
+    public function getTimestamp()
+    {
+        return $this->timestamp;
+    }
+
+    /**
+     * Set timestamp
+     *
+     * @param int $timestamp Timestamp
+     *
+     * @return self This object
+     */
+    public function setTimestamp($timestamp = null)
+    {
+        $this->timestamp = $timestamp === null
+                         ? (int) $timestamp
+                         : null;
 
         return $this;
     }
