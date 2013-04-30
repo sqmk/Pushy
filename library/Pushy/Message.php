@@ -239,7 +239,7 @@ class Message
     {
         $this->timestamp = $timestamp === null
                          ? (int) $timestamp
-                         : null;
+                         : time();
 
         return $this;
     }
