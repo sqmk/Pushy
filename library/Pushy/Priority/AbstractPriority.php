@@ -28,4 +28,16 @@ abstract class AbstractPriority implements PriorityInterface
     {
         return static::CODE;
     }
+
+    /**
+     * Get API parameters
+     *
+     * @return array Parameter list
+     */
+    public function getApiParameters()
+    {
+        return [
+            'priority' => $this->getCode(),
+        ];
+    }
 }
