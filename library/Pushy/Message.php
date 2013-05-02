@@ -241,8 +241,8 @@ class Message
     public function setTimestamp($timestamp = null)
     {
         $this->timestamp = $timestamp === null
-                         ? (int) $timestamp
-                         : time();
+                         ? time()
+                         : (int) $timestamp;
 
         return $this;
     }
