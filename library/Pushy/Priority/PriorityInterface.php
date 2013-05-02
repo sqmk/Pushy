@@ -20,4 +20,11 @@ interface PriorityInterface
      * @return int Priority code
      */
     public function getCode();
+
+    /**
+     * Get API parameters for priority
+     *
+     * @return array List of API parameters
+     */
+    public function getApiParameters();
 }
