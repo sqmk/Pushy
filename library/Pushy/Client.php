@@ -74,7 +74,7 @@ class Client
      *
      * @param Message $message Message
      *
-     * @return mixed
+     * @return mixed Send message result
      */
     public function sendMessage(Message $message)
     {
