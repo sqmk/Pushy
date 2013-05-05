@@ -14,6 +14,7 @@ use Pushy\Transport\TransportInterface;
 use Pushy\Command\CommandInterface;
 use Pushy\Command\SendMessage;
 use Pushy\Command\VerifyUser;
+use Pushy\Command\GetReceiptStatus;
 
 /**
  * Client for Pushover
@@ -90,6 +91,18 @@ class Client
     public function verifyUser(User $user)
     {
         return (new VerifyUser($user))->send($this);
+    }
+
+    /**
+     * Get message status
+     *
+     * @param string $receipt Receipt Id
+     *
+     * @return MessageStatus Message status object
+     */
+    public function getMessageStatus($receipt)
+    {
+        return (new GetMessageStatus($receipt))->send($this);
     }
 
     /**
