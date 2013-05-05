@@ -26,9 +26,9 @@ class SendMessage implements CommandInterface
     protected $message;
 
     /**
-     * Instantiates a verify user command
+     * Instantiates a send message command
      *
-     * @param User $user User object
+     * @param Message $message Message object
      */
     public function __construct(Message $message)
     {
