@@ -60,6 +60,13 @@ class User
      */
     public function setId($id)
     {
+        // Id must be valid format
+        if (!preg_match('/^[a-z0-9]{30}$/i', $id)) {
+            throw new \InvalidArgumentException(
+                'Id must be 30 characters long and contain character set [A-Za-z0-9]'
+            );
+        }
+
         $this->id = (string) $id;
 
         return $this;
@@ -84,6 +91,14 @@ class User
      */
     public function setDeviceName($deviceName)
     {
+        // Id must be valid format
+        if (!preg_match('/^[a-z0-9]{0,25}$/i', $deviceName)) {
+            throw new \InvalidArgumentException(
+                'Device name must be no more than 25 characters long'
+                . ' and contain character set [A-Za-z0-9]'
+            );
+        }
+
         $this->deviceName = (string) $deviceName;
 
         return $this;
