@@ -9,6 +9,8 @@
 
 namespace Pushy;
 
+use DateTime;
+
 /**
  * Message status
  */
@@ -28,7 +30,7 @@ class MessageStatus
      */
     public function __construct($responseData)
     {
-        $this->responseData;
+        $this->responseData = $responseData;
     }
 
     /**
@@ -52,7 +54,7 @@ class MessageStatus
             return null;
         }
 
-        return new DateTime($this->responseData->acknowledged_at);
+        return DateTime::createFromFormat('U', $this->responseData->acknowledged_at);
     }
 
     /**
@@ -66,7 +68,7 @@ class MessageStatus
             return null;
         }
 
-        return new DateTime($this->responseData->last_delivered_at);
+        return DateTime::createFromFormat('U', $this->responseData->last_delivered_at);
     }
 
     /**
@@ -86,11 +88,11 @@ class MessageStatus
      */
     public function expiresAt()
     {
-        if (!$this->responseData->expired_at) {
+        if (!$this->responseData->expires_at) {
             return null;
         }
 
-        return new DateTime($this->responseData->expired_at);
+        return DateTime::createFromFormat('U', $this->responseData->expires_at);
     }
 
     /**
@@ -114,6 +116,6 @@ class MessageStatus
             return null;
         }
 
-        return new DateTime($this->responseData->called_back_at);
+        return DateTime::createFromFormat('U', $this->responseData->called_back_at);
     }
 }
