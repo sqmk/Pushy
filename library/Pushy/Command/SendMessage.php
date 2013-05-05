@@ -40,7 +40,7 @@ class SendMessage implements CommandInterface
      *
      * @param Client $client Pushy client
      *
-     * @return bool true if valid, false if not
+     * @return null|string null if no receipt, string if there is
      */
     public function send(Client $client)
     {
@@ -78,6 +78,9 @@ class SendMessage implements CommandInterface
         // Send request
         $response = $client->getTransport()->sendRequest($requestMessage);
 
-        return $response;
+        // Return receipt if there is one
+        if (isset($response->receipt)) {
+            return $response->receipt;
+        }
     }
 }
