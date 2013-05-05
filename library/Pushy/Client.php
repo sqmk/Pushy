@@ -14,7 +14,7 @@ use Pushy\Transport\TransportInterface;
 use Pushy\Command\CommandInterface;
 use Pushy\Command\SendMessage;
 use Pushy\Command\VerifyUser;
-use Pushy\Command\GetReceiptStatus;
+use Pushy\Command\GetMessageStatus;
 
 /**
  * Client for Pushover
