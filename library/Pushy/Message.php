@@ -163,9 +163,9 @@ class Message
     public function setTitle($title)
     {
         // Title must be of valid length
-        if (strlen($title) > 512) {
+        if (strlen($title) > 100) {
             throw new \InvalidArgumentException(
-                'Message may not exceed 512 characters'
+                'Message may not exceed 100 characters'
             );
         }
 
