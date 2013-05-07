@@ -85,7 +85,6 @@ class Message
         // Set defaults
         $this->setMessage($message);
         $this->setPriority(new NormalPriority);
-        $this->setTimestamp();
         $this->setSound(new PushoverSound);
     }
 
@@ -132,6 +131,13 @@ class Message
      */
     public function setMessage($message)
     {
+        // Message must be of valid length
+        if (strlen($message) > 512) {
+            throw new \InvalidArgumentException(
+                'Message may not exceed 512 characters'
+            );
+        }
+
         $this->message = (string) $message;
 
         return $this;
@@ -156,6 +162,13 @@ class Message
      */
     public function setTitle($title)
     {
+        // Title must be of valid length
+        if (strlen($title) > 512) {
+            throw new \InvalidArgumentException(
+                'Message may not exceed 512 characters'
+            );
+        }
+
         $this->title = (string) $title;
 
         return $this;
@@ -172,7 +185,29 @@ class Message
     }
 
     /**
-     * Get URL Title
+     * Set URL
+     *
+     * @param string $url URL
+     *
+     *
+     * @return self This object
+     */
+    public function setUrl($url)
+    {
+        // URL must be valid length
+        if (strlen($url) > 500) {
+            throw new \InvalidArgumentException(
+                'URL may not exceed 500 characters'
+            );
+        }
+
+        $this->url = (string) $url;
+
+        return $this;
+    }
+
+    /**
+     * Get URL title
      *
      * @return string URL title
      */
@@ -182,17 +217,20 @@ class Message
     }
 
     /**
-     * Set URL
+     * Set URL title
      *
-     * @param string $url      URL
      * @param string $urlTitle URL title
-     *
-     * @return self This object
      */
-    public function setUrl($url, $urlTitle = null)
+    public function setUrlTitle($urlTitle)
     {
-        $this->url      = (string) $url;
-        $this->urlTitle = $urlTitle !== null ? (string) $urlTitle : null;
+        // URL must be valid length
+        if (strlen($urlTitle) > 50) {
+            throw new \InvalidArgumentException(
+                'URL title may not exceed 50 characters'
+            );
+        }
+
+        $this->urlTitle = (string) $urlTitle;
 
         return $this;
     }
