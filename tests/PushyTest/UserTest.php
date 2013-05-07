@@ -30,7 +30,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->user = new User;
+        $this->user = new User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG');
     }
 
     /**
@@ -41,7 +41,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSetId()
     {
-        $id = 'pQiRzpo4DXghDmr9QzzfQu27cmVRsG';
+        $id = 'GsRVmc72uQfzzQ9rmDhgXD4opzRiQp';
 
         $this->user->setId($id);
 
