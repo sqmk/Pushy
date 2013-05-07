@@ -59,6 +59,13 @@ class EmergencyPriority extends AbstractPriority
      */
     public function setRetry($seconds)
     {
+        // Seconds must be at least 30 seconds
+        if ($seconds < 30) {
+            throw new \InvalidArgumentException(
+                'Retry seconds must not be less than 30'
+            );
+        }
+
         $this->retry = (int) $seconds;
 
         return $this;
@@ -83,6 +90,13 @@ class EmergencyPriority extends AbstractPriority
      */
     public function setExpire($seconds)
     {
+        // Seconds must be at least 30 seconds
+        if ($seconds > 86400) {
+            throw new \InvalidArgumentException(
+                'Expire seconds must not exceed 86400 seconds'
+            );
+        }
+
         $this->expire = (int) $seconds;
 
         return $this;
