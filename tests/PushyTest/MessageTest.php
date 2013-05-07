@@ -158,14 +158,25 @@ class MessageTest extends \PHPUnit_Framework_TestCase
      */
     public function testSetUrl()
     {
-        $url      = 'http://example.com';
-        $urlTitle = 'PHPUnit Test URL Title';
+        $url = 'http://example.com';
 
-        $this->message->setUrl($url, $urlTitle);
+        $this->message->setUrl($url);
 
         $this->assertAttributeEquals(
             $url, 'url', $this->message
         );
+    }
+
+    /**
+     * Test: Set URL title
+     *
+     * @covers Pushy\Message::setUrlTitle
+     */
+    public function testSetUrlTitle()
+    {
+        $urlTitle = 'PHPUnit Test URL Title';
+
+        $this->message->setUrlTitle($urlTitle);
 
         $this->assertAttributeEquals(
             $urlTitle, 'urlTitle', $this->message
