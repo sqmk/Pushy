@@ -29,6 +29,8 @@ class Http implements TransportInterface
         curl_setopt($curl, CURLOPT_URL, $requestMessage->getFullUrl());
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $requestMessage->getMethod());
         curl_setopt($curl, CURLOPT_HEADER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         // Set JSON body if available
