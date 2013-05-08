@@ -64,45 +64,17 @@ class Client
      */
     public function setApiToken($apiToken)
     {
+        // Id must be valid format
+        if (!preg_match('/^[a-z0-9]{30}$/i', $apiToken)) {
+            throw new \InvalidArgumentException(
+                'API Token must be 30 characters long'
+                . ' and contain character set [A-Za-z0-9]'
+            );
+        }
+
         $this->apiToken = (string) $apiToken;
 
         return $this;
-    }
-
-    /**
-     * Send a message
-     *
-     * @param Message $message Message
-     *
-     * @return mixed Send message result
-     */
-    public function sendMessage(Message $message)
-    {
-        return (new SendMessage($message))->send($this);
-    }
-
-    /**
-     * Verify user
-     *
-     * @param User $user User
-     *
-     * @return bool TRUE if user is valid
-     */
-    public function verifyUser(User $user)
-    {
-        return (new VerifyUser($user))->send($this);
-    }
-
-    /**
-     * Get message status
-     *
-     * @param string $receipt Receipt Id
-     *
-     * @return MessageStatus Message status object
-     */
-    public function getMessageStatus($receipt)
-    {
-        return (new GetMessageStatus($receipt))->send($this);
     }
 
     /**
@@ -132,6 +104,48 @@ class Client
         $this->transport = $transport;
 
         return $this;
+    }
+
+    /**
+     * Send a message
+     *
+     * @param Message $message Message
+     *
+     * @return mixed Send message result
+     */
+    public function sendMessage(Message $message)
+    {
+        return $this->sendCommand(
+            new SendMessage($message)
+        );
+    }
+
+    /**
+     * Verify user
+     *
+     * @param User $user User
+     *
+     * @return bool TRUE if user is valid
+     */
+    public function verifyUser(User $user)
+    {
+        return $this->sendCommand(
+            new VerifyUser($user)
+        );
+    }
+
+    /**
+     * Get message status
+     *
+     * @param string $receipt Receipt Id
+     *
+     * @return MessageStatus Message status object
+     */
+    public function getMessageStatus($receipt)
+    {
+        return $this->sendCommand(
+            new GetMessageStatus($receipt)
+        );
     }
 
     /**
