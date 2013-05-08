@@ -165,7 +165,7 @@ class Message
         // Title must be of valid length
         if (strlen($title) > 100) {
             throw new \InvalidArgumentException(
-                'Message may not exceed 100 characters'
+                'Title may not exceed 100 characters'
             );
         }
 
@@ -276,11 +276,9 @@ class Message
      *
      * @return self This object
      */
-    public function setTimestamp($timestamp = null)
+    public function setTimestamp($timestamp)
     {
-        $this->timestamp = $timestamp === null
-                         ? time()
-                         : (int) $timestamp;
+        $this->timestamp = (int) $timestamp;
 
         return $this;
     }
