@@ -174,6 +174,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetMessageStatus()
     {
+        // Message status object expects stdClass from transport
+        $this->mockTransport->expects($this->any())
+            ->method('sendRequest')
+            ->will($this->returnValue(new \stdClass));
+
         $this->client->getMessageStatus('abcdefghijklmnopqrstuvwxyz0123');
     }
 
