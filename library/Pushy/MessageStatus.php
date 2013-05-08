@@ -28,7 +28,7 @@ class MessageStatus
      *
      * @param stdClass Response data
      */
-    public function __construct($responseData)
+    public function __construct(stdClass $responseData)
     {
         $this->responseData = $responseData;
     }
