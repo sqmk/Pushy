@@ -80,22 +80,71 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->will($this->returnValue($this->mockPriority));
 
         // Set up client
-        $this->client = new Client('apikey123');
+        $this->client = new Client('KzGDORePK8gMaC0QOYAMyEEuzJnyUi');
         $this->client->setTransport($this->mockTransport);
     }
 
     /**
-     * Test: Get/Set Id
+     * Test: Get/Set API token
      *
+     * @covers Pushy\Client::getApiToken
      * @covers Pushy\Client::setApiToken
      */
-    public function testSetApiToken()
+    public function testGetSetApiToken()
     {
-        $apiToken = 'KzGDORePK8gMaC0QOYAMyEEuzJnyUi';
+        $apiToken = 'iUynJzuEEyMAYOQ0CaMg8KPeRODGzK';
 
         $this->client->setApiToken($apiToken);
 
-        $this->assertAttributeEquals($apiToken, 'apiToken', $this->client);
+        $this->assertEquals(
+            $this->client->getApiToken(),
+            $apiToken
+        );
+    }
+
+    /**
+     * Test: Set invalid API token
+     *
+     * @covers Pushy\Client::setApiToken
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetInvalidApiToken()
+    {
+        $this->client->setApiToken('badtoken');
+    }
+
+    /**
+     * Test: Get/Set transport
+     *
+     * @covers Pushy\Client::getTransport
+     * @covers Pushy\Client::setTransport
+     */
+    public function testGetSetTransport()
+    {
+        $mockTransport = $this->getMock('\Pushy\Transport\TransportInterface');
+
+        $this->client->setTransport($mockTransport);
+
+        $this->assertEquals(
+            $this->client->getTransport(),
+            $mockTransport
+        );
+    }
+
+    /**
+     * Test: Get default transport.
+     *
+     * @covers Pushy\Client::getTransport
+     */
+    public function testGetDefaultTransport()
+    {
+        $client = new Client('KzGDORePK8gMaC0QOYAMyEEuzJnyUi');
+
+        $this->assertInstanceOf(
+            '\Pushy\Transport\TransportInterface',
+            $client->getTransport()
+        );
     }
 
     /**
@@ -116,5 +165,39 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testVerifyUser()
     {
         $this->client->verifyUser($this->mockUser);
+    }
+
+    /**
+     * Test: Get message status
+     *
+     * @covers Pushy\Client::getMessageStatus
+     */
+    public function testGetMessageStatus()
+    {
+        $this->client->getMessageStatus('abcdefghijklmnopqrstuvwxyz0123');
+    }
+
+    /**
+     * Test: Send command
+     *
+     * @covers Pushy\Client::sendCommand
+     */
+    public function testSendCommand()
+    {
+        // Set up mock command
+        $mockCommand = $this->getMock('\Pushy\Command\CommandInterface');
+
+        // Mock command returns a value
+        $dummyValue = 'dummy!';
+
+        $mockCommand->expects($this->any())
+            ->method('send')
+            ->will($this->returnValue($dummyValue));
+
+        // Assert return value of command matches dummy
+        $this->assertEquals(
+            $this->client->sendCommand($mockCommand),
+            $dummyValue
+        );
     }
 }
