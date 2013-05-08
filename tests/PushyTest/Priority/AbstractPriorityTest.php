@@ -43,4 +43,19 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($this->priority->getCode(), $priority::CODE);
     }
+
+    /**
+     * Test: Get API parameters
+     *
+     * @covers Pushy\Priority\AbstractPriority::getApiParameters
+     */
+    public function testGetApiParameters()
+    {
+        $this->assertEquals(
+            $this->priority->getApiParameters(),
+            [
+                'priority' => $this->priority->getCode()
+            ]
+        );
+    }
 }
