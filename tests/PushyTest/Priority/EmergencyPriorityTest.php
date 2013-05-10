@@ -19,7 +19,7 @@ class EmergencyPriorityTest extends \PHPUnit_Framework_TestCase
     /**
      * Priority
      *
-     * @var AbstractPriority
+     * @var EmergencyPriority
      */
     protected $priority;
 
@@ -34,42 +34,54 @@ class EmergencyPriorityTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set retry
      *
-     * @covers Pushy\Priority\EmergencyPriority::setRetry
+     * @covers \Pushy\Priority\EmergencyPriority::getRetry
+     * @covers \Pushy\Priority\EmergencyPriority::setRetry
      */
-    public function testSetRetry()
+    public function testGetSetRetry()
     {
         $retryPeriod = 120;
 
         $this->priority->setRetry($retryPeriod);
 
-        $this->assertAttributeEquals($retryPeriod, 'retry', $this->priority);
+        $this->assertEquals(
+            $retryPeriod,
+            $this->priority->getRetry()
+        );
     }
 
     /**
      * Test: Set expire
      *
-     * @covers Pushy\Priority\EmergencyPriority::setExpire
+     * @covers \Pushy\Priority\EmergencyPriority::getExpire
+     * @covers \Pushy\Priority\EmergencyPriority::setExpire
      */
-    public function testSetExpire()
+    public function testGetSetExpire()
     {
         $expirePeriod = 1234;
 
         $this->priority->setExpire($expirePeriod);
 
-        $this->assertAttributeEquals($expirePeriod, 'expire', $this->priority);
+        $this->assertEquals(
+            $expirePeriod,
+            $this->priority->getExpire()
+        );
     }
 
     /**
      * Test: Set callback
      *
-     * @covers Pushy\Priority\EmergencyPriority::setCallback
+     * @covers \Pushy\Priority\EmergencyPriority::getCallback
+     * @covers \Pushy\Priority\EmergencyPriority::setCallback
      */
-    public function testSetCallback()
+    public function testGetSetCallback()
     {
         $callback = 'http://example.com';
 
         $this->priority->setCallback($callback);
 
-        $this->assertAttributeEquals($callback, 'callback', $this->priority);
+        $this->assertEquals(
+            $callback,
+            $this->priority->getCallback()
+        );
     }
 }
