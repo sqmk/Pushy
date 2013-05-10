@@ -34,7 +34,7 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get code
      *
-     * @covers Pushy\Priority\AbstractPriority::getCode
+     * @covers \Pushy\Priority\AbstractPriority::getCode
      */
     public function testGetCode()
     {
@@ -47,7 +47,7 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get API parameters
      *
-     * @covers Pushy\Priority\AbstractPriority::getApiParameters
+     * @covers \Pushy\Priority\AbstractPriority::getApiParameters
      */
     public function testGetApiParameters()
     {

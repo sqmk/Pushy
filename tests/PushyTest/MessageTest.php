@@ -47,7 +47,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up
      *
-     * @covers Pushy\Message::__construct
+     * @covers \Pushy\Message::__construct
      */
     public function setUp()
     {
@@ -62,7 +62,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Constructor defaults
      *
-     * @covers Pushy\Message::__construct
+     * @covers \Pushy\Message::__construct
      */
     public function testConstructorDefaults()
     {
@@ -80,8 +80,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set user
      *
-     * @covers Pushy\Message::getUser
-     * @covers Pushy\Message::setUser
+     * @covers \Pushy\Message::getUser
+     * @covers \Pushy\Message::setUser
      */
     public function testGetSetUser()
     {
@@ -96,8 +96,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set message
      *
-     * @covers Pushy\Message::getMessage
-     * @covers Pushy\Message::setMessage
+     * @covers \Pushy\Message::getMessage
+     * @covers \Pushy\Message::setMessage
      */
     public function testGetSetMessage()
     {
@@ -114,7 +114,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set invalid length message
      *
-     * @covers Pushy\Message::setMessage
+     * @covers \Pushy\Message::setMessage
      *
      * @expectedException \InvalidArgumentException
      */
@@ -126,8 +126,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set title
      *
-     * @covers Pushy\Message::getTitle
-     * @covers Pushy\Message::setTitle
+     * @covers \Pushy\Message::getTitle
+     * @covers \Pushy\Message::setTitle
      */
     public function testGetSetTitle()
     {
@@ -144,7 +144,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set invalid length title
      *
-     * @covers Pushy\Message::setTitle
+     * @covers \Pushy\Message::setTitle
      *
      * @expectedException \InvalidArgumentException
      */
@@ -156,8 +156,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set URL
      *
-     * @covers Pushy\Message::getUrl
-     * @covers Pushy\Message::setUrl
+     * @covers \Pushy\Message::getUrl
+     * @covers \Pushy\Message::setUrl
      */
     public function testGetSetUrl()
     {
@@ -174,7 +174,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set invalid length URL
      *
-     * @covers Pushy\Message::setUrl
+     * @covers \Pushy\Message::setUrl
      *
      * @expectedException \InvalidArgumentException
      */
@@ -186,8 +186,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set URL title
      *
-     * @covers Pushy\Message::getUrlTitle
-     * @covers Pushy\Message::setUrlTitle
+     * @covers \Pushy\Message::getUrlTitle
+     * @covers \Pushy\Message::setUrlTitle
      */
     public function testGetSetUrlTitle()
     {
@@ -204,7 +204,7 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set invalid length URL title
      *
-     * @covers Pushy\Message::setUrlTitle
+     * @covers \Pushy\Message::setUrlTitle
      *
      * @expectedException \InvalidArgumentException
      */
@@ -216,8 +216,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set priority
      *
-     * @covers Pushy\Message::getPriority
-     * @covers Pushy\Message::setPriority
+     * @covers \Pushy\Message::getPriority
+     * @covers \Pushy\Message::setPriority
      */
     public function testGetSetPriority()
     {
@@ -232,8 +232,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set timestamp
      *
-     * @covers Pushy\Message::getTimestamp
-     * @covers Pushy\Message::setTimestamp
+     * @covers \Pushy\Message::getTimestamp
+     * @covers \Pushy\Message::setTimestamp
      */
     public function testGetSetTimestamp()
     {
@@ -250,8 +250,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set sound
      *
-     * @covers Pushy\Message::getSound
-     * @covers Pushy\Message::setSound
+     * @covers \Pushy\Message::getSound
+     * @covers \Pushy\Message::setSound
      */
     public function testGetSetSound()
     {

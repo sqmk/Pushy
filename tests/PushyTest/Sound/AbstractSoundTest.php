@@ -34,7 +34,7 @@ class AbstractSoundTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get name
      *
-     * @covers Pushy\Sound\AbstractSound::getName
+     * @covers \Pushy\Sound\AbstractSound::getName
      */
     public function testGetName()
     {
@@ -47,7 +47,7 @@ class AbstractSoundTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Convert Sound to string
      *
-     * @covers Pushy\Sound\AbstractSound::__toString
+     * @covers \Pushy\Sound\AbstractSound::__toString
      */
     public function testToString()
     {

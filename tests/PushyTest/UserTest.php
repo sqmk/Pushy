@@ -26,7 +26,7 @@ class UserTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up
      *
-     * @covers Pushy\User::__construct
+     * @covers \Pushy\User::__construct
      */
     public function setUp()
     {
@@ -36,8 +36,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set Id
      *
-     * @covers Pushy\User::getId
-     * @covers Pushy\User::setId
+     * @covers \Pushy\User::getId
+     * @covers \Pushy\User::setId
      */
     public function testGetSetId()
     {
@@ -51,8 +51,8 @@ class UserTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set Device Name
      *
-     * @covers Pushy\User::getDeviceName
-     * @covers Pushy\User::setDeviceName
+     * @covers \Pushy\User::getDeviceName
+     * @covers \Pushy\User::setDeviceName
      */
     public function testGetSetDeviceName()
     {

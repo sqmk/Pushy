@@ -54,7 +54,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Set up
      *
-     * @covers Pushy\Client::__construct
+     * @covers \Pushy\Client::__construct
      */
     public function setUp()
     {
@@ -87,8 +87,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set API token
      *
-     * @covers Pushy\Client::getApiToken
-     * @covers Pushy\Client::setApiToken
+     * @covers \Pushy\Client::getApiToken
+     * @covers \Pushy\Client::setApiToken
      */
     public function testGetSetApiToken()
     {
@@ -105,7 +105,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Set invalid API token
      *
-     * @covers Pushy\Client::setApiToken
+     * @covers \Pushy\Client::setApiToken
      *
      * @expectedException \InvalidArgumentException
      */
@@ -117,8 +117,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get/Set transport
      *
-     * @covers Pushy\Client::getTransport
-     * @covers Pushy\Client::setTransport
+     * @covers \Pushy\Client::getTransport
+     * @covers \Pushy\Client::setTransport
      */
     public function testGetSetTransport()
     {
@@ -135,7 +135,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get default transport.
      *
-     * @covers Pushy\Client::getTransport
+     * @covers \Pushy\Client::getTransport
      */
     public function testGetDefaultTransport()
     {
@@ -150,7 +150,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Send message
      *
-     * @covers Pushy\Client::sendMessage
+     * @covers \Pushy\Client::sendMessage
      */
     public function testSendMessage()
     {
@@ -160,7 +160,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Verify user
      *
-     * @covers Pushy\Client::verifyUser
+     * @covers \Pushy\Client::verifyUser
      */
     public function testVerifyUser()
     {
@@ -170,7 +170,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get message status
      *
-     * @covers Pushy\Client::getMessageStatus
+     * @covers \Pushy\Client::getMessageStatus
      */
     public function testGetMessageStatus()
     {
@@ -185,7 +185,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Send command
      *
-     * @covers Pushy\Client::sendCommand
+     * @covers \Pushy\Client::sendCommand
      */
     public function testSendCommand()
     {
