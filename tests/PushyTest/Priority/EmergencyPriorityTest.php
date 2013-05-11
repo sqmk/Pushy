@@ -50,6 +50,18 @@ class EmergencyPriorityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test: Set retry with invalid value.
+     *
+     * @covers \Pushy\Priority\EmergencyPriority::setRetry
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetRetryInvalid()
+    {
+        $this->priority->setRetry(20);
+    }
+
+    /**
      * Test: Set expire
      *
      * @covers \Pushy\Priority\EmergencyPriority::getExpire
@@ -68,6 +80,18 @@ class EmergencyPriorityTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test: Set expire with invalid value.
+     *
+     * @covers \Pushy\Priority\EmergencyPriority::setExpire
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetExpireInvalid()
+    {
+        $this->priority->setExpire(86500);
+    }
+
+    /**
      * Test: Set callback
      *
      * @covers \Pushy\Priority\EmergencyPriority::getCallback
@@ -82,6 +106,19 @@ class EmergencyPriorityTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             $callback,
             $this->priority->getCallback()
+        );
+    }
+
+    /**
+     * Test: Get API parameters.
+     *
+     * @covers \Pushy\Priority\EmergencyPriority::getApiParameters
+     */
+    public function testGetApiParameters()
+    {
+        $this->assertInternalType(
+            'array',
+            $this->priority->getApiParameters()
         );
     }
 }
