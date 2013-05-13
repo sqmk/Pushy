@@ -49,6 +49,18 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test: Set Id with an invalid value
+     *
+     * @covers \Pushy\User::setId
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetIdWithInvalidValue()
+    {
+        $this->user->setId('dummy');
+    }
+
+    /**
      * Test: Get/Set Device Name
      *
      * @covers \Pushy\User::getDeviceName
@@ -61,5 +73,17 @@ class UserTest extends \PHPUnit_Framework_TestCase
         $this->user->setDeviceName($deviceName);
 
         $this->assertEquals($deviceName, $this->user->getDeviceName());
+    }
+
+    /**
+     * Test: Set device name with an invalid value
+     *
+     * @covers \Pushy\User::setDeviceName
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetDeviceNameWithInvalidValue()
+    {
+        $this->user->setDeviceName('du.mmy');
     }
 }
