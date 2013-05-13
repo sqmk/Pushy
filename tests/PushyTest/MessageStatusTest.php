@@ -53,7 +53,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Is acknowledged.
+     * Test: Is acknowledged
      *
      * @covers \Pushy\MessageStatus::isAcknowledged
      */
@@ -63,7 +63,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Acknowledged at.
+     * Test: Acknowledged at
      *
      * @covers \Pushy\MessageStatus::acknowledgedAt
      */
@@ -76,7 +76,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Acknowledged at with no value.
+     * Test: Acknowledged at with no value
      *
      * @covers \Pushy\MessageStatus::acknowledgedAt
      */
@@ -90,7 +90,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Last delivered at.
+     * Test: Last delivered at
      *
      * @covers \Pushy\MessageStatus::lastDeliveredAt
      */
@@ -103,7 +103,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Last delivered at with no value.
+     * Test: Last delivered at with no value
      *
      * @covers \Pushy\MessageStatus::lastDeliveredAt
      */
@@ -117,7 +117,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Is expired.
+     * Test: Is expired
      *
      * @covers \Pushy\MessageStatus::isExpired
      */
@@ -127,7 +127,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Expires at.
+     * Test: Expires at
      *
      * @covers \Pushy\MessageStatus::expiresAt
      */
@@ -140,7 +140,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Expires at with no value.
+     * Test: Expires at with no value
      *
      * @covers \Pushy\MessageStatus::expiresAt
      */
@@ -154,7 +154,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Has called back.
+     * Test: Has called back
      *
      * @covers \Pushy\MessageStatus::hasCalledBack
      */
@@ -164,7 +164,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Called back at.
+     * Test: Called back at
      *
      * @covers \Pushy\MessageStatus::calledBackAt
      */
@@ -177,7 +177,7 @@ class MessageStatusTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Called back at with no value.
+     * Test: Called back at with no value
      *
      * @covers \Pushy\MessageStatus::calledBackAt
      */
