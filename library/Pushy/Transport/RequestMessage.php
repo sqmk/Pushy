@@ -41,11 +41,11 @@ class RequestMessage
     protected $queryParams;
 
     /**
-     * JSON Fields
+     * Post body
      *
      * @var null|array
      */
-    protected $jsonFields;
+    protected $postBody;
 
     /**
      * Get request method
@@ -94,10 +94,14 @@ class RequestMessage
     /**
      * Get query params
      *
-     * @return string URL-encoded query params
+     * @return string|null URL-encoded query params
      */
     public function getQueryParams()
     {
+        if (!$this->queryParams) {
+            return;
+        }
+
         return http_build_query($this->queryParams);
     }
 
@@ -137,27 +141,27 @@ class RequestMessage
      *
      * @return string JSON
      */
-    public function getJsonBody()
+    public function getPostBody()
     {
         // Return null if no data
-        if (!$this->jsonFields) {
+        if (!$this->postBody) {
             return;
         }
 
-        return json_encode($this->jsonFields);
+        return $this->postBody;
     }
 
     /**
-     * Set JSON body field
+     * Set post body field
      *
      * @param string $fieldName Field name
      * @param string $value     Value
      *
      * @return self This object
      */
-    public function setJsonBodyField($fieldName, $value)
+    public function setPostBodyField($fieldName, $value)
     {
-        $this->jsonFields[$fieldName] = $value;
+        $this->postBody[$fieldName] = $value;
 
         return $this;
     }

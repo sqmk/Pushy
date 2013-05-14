@@ -34,7 +34,7 @@ class Http implements TransportInterface
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         // Set JSON body if available
-        if ($body = $requestMessage->getJsonBody()) {
+        if ($body = $requestMessage->getPostBody()) {
             curl_setopt($curl, CURLOPT_POSTFIELDS, $body);
         }
 
