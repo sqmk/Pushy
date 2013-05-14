@@ -38,14 +38,14 @@ class RequestMessage
      *
      * @var array
      */
-    protected $queryParams;
+    protected $queryParams = [];
 
     /**
      * Post body
      *
-     * @var null|array
+     * @var array
      */
-    protected $postBody;
+    protected $postBody = [];
 
     /**
      * Get request method
@@ -98,11 +98,7 @@ class RequestMessage
      */
     public function getQueryParams()
     {
-        if (!$this->queryParams) {
-            return;
-        }
-
-        return http_build_query($this->queryParams);
+        return $this->queryParams;
     }
 
     /**
@@ -130,7 +126,7 @@ class RequestMessage
         $fullPath = self::API_DOMAIN . $this->getPath();
 
         if ($query = $this->getQueryParams()) {
-            $fullPath .= "?{$query}";
+            $fullPath .= '?' . http_build_query($query);
         }
 
         return $fullPath;
@@ -143,11 +139,6 @@ class RequestMessage
      */
     public function getPostBody()
     {
-        // Return null if no data
-        if (!$this->postBody) {
-            return;
-        }
-
         return $this->postBody;
     }
 
