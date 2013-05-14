@@ -72,7 +72,7 @@ class SendMessage implements CommandInterface
                 continue;
             }
 
-            $requestMessage->setQueryParam($param, $value);
+            $requestMessage->setPostBodyField($param, $value);
         }
 
         // Send request
