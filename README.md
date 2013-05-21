@@ -8,7 +8,7 @@ Pushy is a PHP client that makes communicating with [Pushover.net](https://pusho
 
 Pushy makes full use of Pushover's API. This includes sending messages, validating users, and retrieving message statuses.
 
-Interested in sending real-time mobile notifications to your iOS or Android device(s) from your web app? Take a look at [Pushover.net](https://pushover.net). It's free, and extremely easy to use with Pushy!
+Interested in sending real-time mobile notifications to your iOS or Android device(s) from your web app? Take a look at [Pushover.net](https://pushover.net). API usage is free, and extremely easy to use with Pushy!
 
 ## Requirements
 
