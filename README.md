@@ -212,6 +212,3 @@ $message->hasCalledBack();
 // When Pushover contacted the callback URL (DateTime or null)
 $message->calledBackAt();
 ```
-
-
-```
