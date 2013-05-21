@@ -6,6 +6,8 @@ Master: [![Build Status](https://travis-ci.org/sqmk/Pushy.png?branch=master)](ht
 
 Pushy is a PHP client that makes communicating with [Pushover.net](https://pushover.net)'s API simple.
 
+Pushy makes full use of Pushover's API. This includes sending messages, validating users, and retrieving message statuses.
+
 Interested in sending real-time mobile notifications to your iOS or Android device(s) from your web app? Take a look at [Pushover.net](https://pushover.net). It's free, and extremely easy to use with Pushy!
 
 ## Requirements
