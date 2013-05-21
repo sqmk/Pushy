@@ -44,6 +44,23 @@ $pushy = new Pushy\Client('KzGDORePK8gMaC0QOYAMyEEuzJnyUi');
 
 ### Sending messages
 
+Now that you have a client instantiated, you can send a message. But first, you want to build a user object for the receiving user.
+
+You'll need to get your user identifier (or user key) at [Pushover.net](https://pushover.net). You'll also want a registered device name if you want to send a message to a single device. You can now create a user object with these details.
+
+```php
+// Instantiate a user object (targets all devices)
+$user = new Pushy\User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG');
+
+// Alternatively, instantiate a user object with a targeted device
+$user = new Pushy\User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG', 'droid2');
+
+// Setting properties by chaining is also possible
+$user = (new Pushy\User)
+  ->setId('pQiRzpo4DXghDmr9QzzfQu27cmVRsG')
+  ->setDeviceName('droid2');
+```
+
 ### Verifying a user
 
 ### Getting message status 
