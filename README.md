@@ -4,7 +4,7 @@ Master: [![Build Status](https://travis-ci.org/sqmk/Pushy.png?branch=master)](ht
 
 ## Introduction
 
-Pushy is a PHP client that makes communicating with [Pushover.net[(https://pushover.net)'s API simple.
+Pushy is a PHP client that makes communicating with [Pushover.net](https://pushover.net)'s API simple.
 
 Interested in sending real-time mobile notifications to your iOS or Android device(s) from your web app? Take a look at [Pushover.net](https://pushover.net). It's free, and extremely easy to use with Pushy!
 
@@ -170,4 +170,48 @@ The list of available sounds in Pushy\Sound:
 
 ### Verifying a user
 
-### Getting message status 
+A user object can be verified with Pushover prior to sending out messages.
+
+```php
+// Pass previous instantiated user object to the client
+try {
+  $client->verifyUser($user);
+  
+  echo 'User is valid';
+} catch (Pushy\Transport\Exception\ApiException $e) {
+  echo 'User is not valid';
+}
+```
+
+### Getting message status
+
+When using an emergency priority with a message, you get a receipt code after sending the message successfully. You can get the status of the message by sending the receipt code by way of `getMessageStatus`.
+
+```php
+// Get message with the receipt code
+$messageStatus = $client->getMessageStatus($receiptCode);
+
+// Was the message acknowledged? (true or false)
+$messageStatus->isAcknowledged();
+
+// When the message was acknowledged (DateTime or null)
+$message->acknowledgedAt();
+
+// When the message was last delivered (DateTime or null)
+$message->lastDeliveredAt();
+
+// Is the message expired? (true or false)
+$message->isExpired();
+
+// When the message expired (DateTime or null)
+$message->expiresAt();
+
+// Has Pushover contacted the callback URL? (true or false)
+$message->hasCalledBack();
+
+// When Pushover contacted the callback URL (DateTime or null)
+$message->calledBackAt();
+```
+
+
+```
