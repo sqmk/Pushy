@@ -104,12 +104,32 @@ $message = (new Pushy\Message)
 
 To send the message, pass the message object to the client.
 
-```
+```php
 // Send the previous created message
 $client->sendMessage($message);
 ```
 
 If no exceptions are thrown, the message was sent successfully. No data is returned by the sendMessage method unless the message has an emergency priority.
+
+```php
+// Create a message with emergency priority
+$message = (new Pushy\Message)
+  ->setMessage('Important message')
+  ->setTitle('Important subject')
+  ->setUser($user)
+  ->setPriority(
+    (new Pushy\Priority\EmergencyPriority)
+      // Resend message to user every X seconds
+      ->setRetry(30)
+      // Expire message after X seconds
+      ->setExpire(3600)
+      // Set callback URL to hit when user acknowledges message
+      ->setCallback('http://example.org/api')
+  );
+
+// Send message and get receipt code
+$receiptCode = $client->sendMessage($message);
+```
 
 ### Verifying a user
 
