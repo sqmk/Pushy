@@ -90,7 +90,7 @@ class EmergencyPriority extends AbstractPriority
      */
     public function setExpire($seconds)
     {
-        // Seconds must be at least 30 seconds
+        // Seconds must be not exceed 24 hours
         if ($seconds > 86400) {
             throw new \InvalidArgumentException(
                 'Expire seconds must not exceed 86400 seconds'
