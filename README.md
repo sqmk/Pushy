@@ -6,7 +6,22 @@ Pushy is a PHP client that makes communicating with Pushover.net simple.
 
 ## Requirements
 
+- PHP 5.4
+- cURL extension
+
 ## Installation
+
+You can install Pushy by using [composer](http://getcomposer.org). Simply add the dependency to your `composer.json` configuration:
+
+```json
+{
+  "require": {
+    "sqmk/pushy": "dev-master"
+  }
+}
+```
+
+See [composer](http://getcomposer.org) and [packagist](https://packagist.org)  for more information.
 
 ## Usage
 
