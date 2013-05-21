@@ -111,6 +111,10 @@ $client->sendMessage($message);
 
 If no exceptions are thrown, the message was sent successfully. No data is returned by the sendMessage method unless the message has an emergency priority.
 
+#### Emergency priority messages
+
+You can send a message with an emergency priority and get a receipt code.
+
 ```php
 // Create a message with emergency priority
 $message = (new Pushy\Message)
@@ -130,6 +134,39 @@ $message = (new Pushy\Message)
 // Send message and get receipt code
 $receiptCode = $client->sendMessage($message);
 ```
+
+#### Priorities
+
+The list of available priorities in Pushy\Priority:
+- LowPriority
+- NormalPriority (default)
+- HighPriority
+- EmergencyPriority
+
+#### Sounds
+
+The list of available sounds in Pushy\Sound:
+- AlienSound
+- BikeSound
+- BugleSound
+- CashRegisterSound
+- ClassicalSound
+- ClimbSound
+- CosmicSound
+- EchoSound
+- FallingSound
+- GamelanSound
+- IncomingSound
+- IntermissionSound
+- MagicSound
+- MechanicalSound
+- NoSound
+- PersistentSound
+- PianoBarSound
+- PushoverSound (default)
+- SirenSound
+- TugBoatSound
+- UpDownSound
 
 ### Verifying a user
 
