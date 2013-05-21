@@ -44,7 +44,7 @@ $pushy = new Pushy\Client('KzGDORePK8gMaC0QOYAMyEEuzJnyUi');
 
 ### Sending messages
 
-Now that you have a client instantiated, you can send a message. But first, you want to build a user object for the receiving user.
+You have a client instantiated, now you can send a message. But first, you want to build a user object for the receiving user.
 
 You'll need to get your user identifier (or user key) at [Pushover.net](https://pushover.net). You'll also want a registered device name if you want to send a message to a single device. You can now create a user object with these details.
 
@@ -60,6 +60,56 @@ $user = (new Pushy\User)
   ->setId('pQiRzpo4DXghDmr9QzzfQu27cmVRsG')
   ->setDeviceName('droid2');
 ```
+
+With a user, you can send a message.
+
+```php
+// Instantiate a message object with a message body
+$message = new Pushy\Message('Your message body');
+
+// Set the recipient of the message
+$message->setUser($user);
+
+// Set the title
+$message->setTitle('You message title');
+
+// Set a priority (defaults to NormalPriority)
+$message->setPriority(
+  new Pushy\Priority\LowPriority
+);
+
+// Set a sound (defaults to PushoverSound)
+$message->setSound(
+  new Pushy\Sound\AlienSound
+);
+
+// Set a supplementary URL and title
+$message->setUrl(
+  'http://example.org'
+);
+
+$message->setUrlTitle(
+  'Example.org'
+);
+
+// Set a custom sent timestamp
+$message->setTimestamp(1369111110);
+
+// All methods above are chainable
+$message = (new Pushy\Message)
+  ->setMessage('Your message body')
+  ->setTitle('Your message title')
+  ->setUser($user);
+```
+
+To send the message, pass the message object to the client.
+
+```
+// Send the previous created message
+$client->sendMessage($message);
+```
+
+If no exceptions are thrown, the message was sent successfully. No data is returned by the sendMessage method unless the message has an emergency priority.
 
 ### Verifying a user
 
