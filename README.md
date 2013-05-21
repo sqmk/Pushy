@@ -113,7 +113,7 @@ If no exceptions are thrown, the message was sent successfully. No data is retur
 
 #### Emergency priority messages
 
-You can send a message with an emergency priority and get a receipt code.
+You can send a message with an emergency priority and get a receipt code. Emergency priorities also have additional options.
 
 ```php
 // Create a message with emergency priority
