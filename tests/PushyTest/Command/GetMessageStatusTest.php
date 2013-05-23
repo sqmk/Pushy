@@ -54,7 +54,21 @@ class GetMessageStatusTest extends \PHPUnit_Framework_TestCase
         );
 
         // Instantiate get message status command
-        $this->getMessageStatusCommand = new GetMessageStatus('receipt-name');
+        $this->getMessageStatusCommand = new GetMessageStatus(
+            '3c0b5952fba0ab27805159217077c1'
+        );
+    }
+
+    /**
+     * Test: Set receipt with invalid value
+     *
+     * @covers \Pushy\Command\GetMessageStatus::setReceipt
+     *
+     * @expectedException \InvalidArgumentException
+     */
+    public function testSetReceiptWithInvalidValue()
+    {
+        $this->getMessageStatusCommand->setReceipt('invalid');
     }
 
     /**

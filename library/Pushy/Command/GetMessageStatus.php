@@ -32,7 +32,28 @@ class GetMessageStatus implements CommandInterface
      */
     public function __construct($receipt)
     {
-        $this->receipt = (string) $receipt;
+        $this->setReceipt($receipt);
+    }
+
+    /**
+     * Set receipt
+     *
+     * @param string $receipt Receipt Id
+     *
+     * @return self This object
+     */
+    public function setReceipt($receipt)
+    {
+        // Id must be valid format
+        if (!preg_match('/^[a-z0-9]{30}$/i', $receipt)) {
+            throw new \InvalidArgumentException(
+                'Receipt must be 30 characters long and contain character set [A-Za-z0-9]'
+            );
+        }
+
+        $this->receipt = $receipt;
+
+        return $this;
     }
 
     /**
