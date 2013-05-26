@@ -197,20 +197,20 @@ $messageStatus = $client->getMessageStatus($receiptCode);
 $messageStatus->isAcknowledged();
 
 // When the message was acknowledged (DateTime or null)
-$message->acknowledgedAt();
+$messageStatus->acknowledgedAt();
 
 // When the message was last delivered (DateTime or null)
-$message->lastDeliveredAt();
+$messageStatus->lastDeliveredAt();
 
 // Is the message expired? (true or false)
-$message->isExpired();
+$messageStatus->isExpired();
 
 // When the message expired (DateTime or null)
-$message->expiresAt();
+$messageStatus->expiresAt();
 
 // Has Pushover contacted the callback URL? (true or false)
-$message->hasCalledBack();
+$messageStatus->hasCalledBack();
 
 // When Pushover contacted the callback URL (DateTime or null)
-$message->calledBackAt();
+$messageStatus->calledBackAt();
 ```
