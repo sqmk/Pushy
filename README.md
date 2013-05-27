@@ -108,7 +108,7 @@ To send the message, pass the message object to the client.
 
 ```php
 // Send the previous created message
-$client->sendMessage($message);
+$pushy->sendMessage($message);
 ```
 
 If no exceptions are thrown, the message was sent successfully. No data is returned by the sendMessage method unless the message has an emergency priority.
@@ -134,7 +134,7 @@ $message = (new Pushy\Message)
   );
 
 // Send message and get receipt code
-$receiptCode = $client->sendMessage($message);
+$receiptCode = $pushy->sendMessage($message);
 ```
 
 #### Priorities
@@ -177,7 +177,7 @@ A user object can be verified with Pushover prior to sending out messages.
 ```php
 // Pass previous instantiated user object to the client
 try {
-  $client->verifyUser($user);
+  $pushy->verifyUser($user);
   
   echo 'User is valid';
 } catch (Pushy\Transport\Exception\ApiException $e) {
@@ -191,7 +191,7 @@ When using an emergency priority with a message, you get a receipt code after se
 
 ```php
 // Get message with the receipt code
-$messageStatus = $client->getMessageStatus($receiptCode);
+$messageStatus = $pushy->getMessageStatus($receiptCode);
 
 // Was the message acknowledged? (true or false)
 $messageStatus->isAcknowledged();
