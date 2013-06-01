@@ -63,7 +63,7 @@ $user = (new Pushy\User)
   ->setDeviceName('droid2');
 ```
 
-With a user, you can send a message.
+After creating a user, you have enough to start creating a message.
 
 ```php
 // Instantiate a message object with a message body
