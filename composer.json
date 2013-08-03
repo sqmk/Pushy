@@ -1,6 +1,6 @@
 {
     "name": "sqmk/pushy",
-    "description": "Pushy - A PHP client for Pushover",
+    "description": "A PHP client for Pushover.net",
     "type": "library",
     "keywords": [
         "pushy",
