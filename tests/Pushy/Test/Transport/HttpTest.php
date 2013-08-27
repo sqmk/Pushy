@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest\Transport\Http;
+namespace Pushy\Test\Transport\Http;
 
 use Pushy\Transport\Http;
 

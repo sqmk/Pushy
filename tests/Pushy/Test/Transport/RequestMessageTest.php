@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest\Transport;
+namespace Pushy\Test\Transport;
 
 use Pushy\Transport\RequestMessage;
 

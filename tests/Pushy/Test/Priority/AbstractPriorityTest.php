@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest\Priority;
+namespace Pushy\Test\Priority;
 
 /**
  * Tests for Pushy\Priority\AbstractPriority
