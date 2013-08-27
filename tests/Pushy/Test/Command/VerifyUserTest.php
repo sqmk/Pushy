@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest\Command;
+namespace Pushy\Test\Command;
 
 use Pushy\Command\VerifyUser;
 

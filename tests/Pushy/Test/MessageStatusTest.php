@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest;
+namespace Pushy\Test;
 
 use Pushy\MessageStatus;
 

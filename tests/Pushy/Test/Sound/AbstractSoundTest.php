@@ -7,7 +7,7 @@
  * @license   http://github.com/sqmk/Pushy/wiki/License
  */
 
-namespace PushyTest\Sound;
+namespace Pushy\Test\Sound;
 
 /**
  * Tests for Pushy\Sound\AbstractSound
