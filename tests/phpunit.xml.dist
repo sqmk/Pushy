@@ -10,7 +10,7 @@
          forceCoversAnnotation="true">
     <testsuites>
         <testsuite name="Pushy Test Suite">
-            <directory>./PushyTest</directory>
+            <directory>./Pushy/Test</directory>
         </testsuite>
     </testsuites>
     <logging>
