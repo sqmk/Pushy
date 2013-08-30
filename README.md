@@ -33,6 +33,8 @@ See [composer](http://getcomposer.org) and [packagist](https://packagist.org)  f
 
 Assuming your composer generated or custom autoloader can load Pushy files properly, using it is simple!
 
+For those interested in the complete API, you can check out the auto-generated documentation at [GitApiDoc](http://gitapidoc.com/api/sqmk/Pushy/).
+
 ### Initializing client
 
 In order to send a message, verify a user, or get a message status, you'll first need an application API key. You can get an API key by registering a new application on [Pushover.net](https://pushover.net).
