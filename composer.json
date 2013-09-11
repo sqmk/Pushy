@@ -21,6 +21,7 @@
         "ext-curl": "*"
     },
     "require-dev": {
+        "mockery/mockery": "0.8.0",
         "phpunit/PHPUnit": "3.7.*",
         "squizlabs/php_codesniffer": "1.4.*"
     },
