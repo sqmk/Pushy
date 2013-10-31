@@ -29,5 +29,8 @@
         "psr-0": {
             "Pushy": "library/"
         }
-    }
+    },
+    "bin": [
+        "bin/pushy"
+    ]
 }
