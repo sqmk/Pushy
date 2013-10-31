@@ -60,8 +60,7 @@ $user = new Pushy\User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG');
 $user = new Pushy\User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG', 'droid2');
 
 // Setting properties by chaining is also possible
-$user = (new Pushy\User)
-  ->setId('pQiRzpo4DXghDmr9QzzfQu27cmVRsG')
+$user = (new Pushy\User('pQiRzpo4DXghDmr9QzzfQu27cmVRsG'))
   ->setDeviceName('droid2');
 ```
 
