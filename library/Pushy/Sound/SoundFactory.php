@@ -14,23 +14,23 @@ namespace Pushy\Sound;
  */
 class SoundFactory
 {
-	/**
-	 * Create sound
-	 *
-	 * @param string $name Sound name
-	 *
-	 * @return AbstractSound Sound
-	 */
-	public static function createSound($name)
-	{
-		// Generate class name
-		$className = __NAMESPACE__ . '\\' . ucfirst(strtolower($name)) . 'Sound';
+    /**
+     * Create sound
+     *
+     * @param string $name Sound name
+     *
+     * @return AbstractSound Sound
+     */
+    public static function createSound($name)
+    {
+        // Generate class name
+        $className = __NAMESPACE__ . '\\' . ucfirst(strtolower($name)) . 'Sound';
 
-		// Determine if class exists
-		if (!class_exists($className)) {
-			throw new \Exception("{$name} is not a valid sound");
-		}
+        // Determine if class exists
+        if (!class_exists($className)) {
+            throw new \Exception("{$name} is not a valid sound");
+        }
 
-		return new $className;
-	}
+        return new $className;
+    }
 }
