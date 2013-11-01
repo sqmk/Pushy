@@ -10,9 +10,9 @@
 namespace Pushy\Sound;
 
 /**
- * UpDown sound
+ * Updown sound
  */
-class UpDownSound extends AbstractSound
+class UpdownSound extends AbstractSound
 {
     /**
      * Name of sound

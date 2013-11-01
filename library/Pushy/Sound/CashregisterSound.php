@@ -10,9 +10,9 @@
 namespace Pushy\Sound;
 
 /**
- * CashRegister sound
+ * Cashregister sound
  */
-class CashRegisterSound extends AbstractSound
+class CashregisterSound extends AbstractSound
 {
     /**
      * Name of sound

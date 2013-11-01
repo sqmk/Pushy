@@ -10,9 +10,9 @@
 namespace Pushy\Sound;
 
 /**
- * PianoBar sound
+ * Pianobar sound
  */
-class PianoBarSound extends AbstractSound
+class PianobarSound extends AbstractSound
 {
     /**
      * Name of sound
