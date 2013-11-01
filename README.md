@@ -153,7 +153,7 @@ The list of available sounds in Pushy\Sound:
 - AlienSound
 - BikeSound
 - BugleSound
-- CashRegisterSound
+- CashregisterSound
 - ClassicalSound
 - ClimbSound
 - CosmicSound
@@ -166,11 +166,11 @@ The list of available sounds in Pushy\Sound:
 - MechanicalSound
 - NoSound
 - PersistentSound
-- PianoBarSound
+- PianobarSound
 - PushoverSound (default)
 - SirenSound
-- TugBoatSound
-- UpDownSound
+- TugboatSound
+- UpdownSound
 
 ### Verifying a user
 
