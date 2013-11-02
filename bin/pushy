@@ -52,13 +52,10 @@ try {
     isset($options['url']) && $message->setUrl($options['url']);
     isset($options['url-title']) && $message->setUrlTitle($options['url-title']);
     isset($options['timestamp']) && $message->setTimestamp($options['timestamp']);
-    isset($options['sound']) && $message->setSound(\Pushy\Sound\SoundFactory::createSound($options['sound']));
-
-    if (isset($options['priority']) && class_exists('\Pushy\Priority\\' . $options['priority'] . 'Priority')) {
-        $emergencyClass = '\Pushy\Priority\\' . $options['priority'] . 'Priority';
-
-        $message->setPriority(new $emergencyClass);
-    }
+    isset($options['sound'])
+        && $message->setSound(\Pushy\Sound\SoundFactory::createSound($options['sound']));
+    isset($options['priority'])
+        && $message->setPriority(\Pushy\Priority\PriorityFactory::createPriority($options['priority']));
 
     // Send message.
     $client->sendMessage($message);
