@@ -10,6 +10,7 @@
 namespace Pushy\Test;
 
 use Pushy\Client;
+use Mockery;
 
 /**
  * Tests for Pushy\Client
@@ -58,26 +59,32 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        // Set up mocks
-        $this->mockMessage   = $this->getMock('\Pushy\Message');
-        $this->mockUser      = $this->getMock('\Pushy\User');
-        $this->mockPriority  = $this->getMock('\Pushy\Priority\PriorityInterface');
-        $this->mockTransport = $this->getMock('\Pushy\Transport\TransportInterface');
+        // Set up mock user
+        $this->mockUser = Mockery::mock('\Pushy\User')
+            ->shouldIgnoreMissing();
 
-        // Mock priority needs list of api params
-        $this->mockPriority->expects($this->any())
-            ->method('getApiParameters')
-            ->will($this->returnValue([]));
+        // Set mock priority
+        $this->mockPriority = Mockery::mock('\Pushy\Priority\PriorityInterface')
+            ->shouldIgnoreMissing()
+            ->shouldReceive('getApiParameters')
+            ->andReturn([])
+            ->getMock();
 
-        // Mock message needs user
-        $this->mockMessage->expects($this->any())
-            ->method('getUser')
-            ->will($this->returnValue($this->mockUser));
+        // Set up mock message
+        $this->mockMessage = Mockery::mock('\Pushy\Message')
+            ->shouldIgnoreMissing();
 
-        // Mock message needs priority
-        $this->mockMessage->expects($this->any())
-            ->method('getPriority')
-            ->will($this->returnValue($this->mockPriority));
+        $this->mockMessage
+            ->shouldReceive('getUser')
+            ->andReturn($this->mockUser);
+
+        $this->mockMessage
+            ->shouldReceive('getPriority')
+            ->andReturn($this->mockPriority);
+
+        // Set mock transport
+        $this->mockTransport = Mockery::mock('\Pushy\Transport\TransportInterface')
+            ->shouldIgnoreMissing();
 
         // Set up client
         $this->client = new Client('KzGDORePK8gMaC0QOYAMyEEuzJnyUi');
@@ -122,7 +129,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetSetTransport()
     {
-        $mockTransport = $this->getMock('\Pushy\Transport\TransportInterface');
+        $mockTransport = Mockery::mock('\Pushy\Transport\TransportInterface');
 
         $this->client->setTransport($mockTransport);
 
@@ -175,9 +182,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetMessageStatus()
     {
         // Message status object expects stdClass from transport
-        $this->mockTransport->expects($this->any())
-            ->method('sendRequest')
-            ->will($this->returnValue(new \stdClass));
+        $this->mockTransport
+            ->shouldReceive('sendRequest')
+            ->andReturn(new \stdClass);
 
         $this->client->getMessageStatus('abcdefghijklmnopqrstuvwxyz0123');
     }
@@ -189,15 +196,15 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testSendCommand()
     {
-        // Set up mock command
-        $mockCommand = $this->getMock('\Pushy\Command\CommandInterface');
-
-        // Mock command returns a value
+        // Command returns a value
         $dummyValue = 'dummy!';
 
-        $mockCommand->expects($this->any())
-            ->method('send')
-            ->will($this->returnValue($dummyValue));
+        // Mock command
+        $mockCommand = Mockery::mock('\Pushy\Command\CommandInterface')
+            ->shouldReceive('send')
+            ->times(1)
+            ->andReturn($dummyValue)
+            ->getMock();
 
         // Assert return value of command matches dummy
         $this->assertEquals(
