@@ -25,13 +25,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     protected $client;
 
     /**
-     * Mock message
-     *
-     * @var \Pushy\Message
-     */
-    protected $mockMessage;
-
-    /**
      * Mock user
      *
      * @var \Pushy\User
@@ -44,6 +37,13 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      * @var \Pushy\Priority\PriorityInterface
      */
     protected $mockPriority;
+
+    /**
+     * Mock message
+     *
+     * @var \Pushy\Message
+     */
+    protected $mockMessage;
 
     /**
      * Mock transport
