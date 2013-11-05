@@ -10,6 +10,7 @@
 namespace Pushy\Test\Transport\Http;
 
 use Pushy\Transport\Http;
+use Mockery;
 
 /**
  * Tests for Pushy\Transport\Http
@@ -38,9 +39,9 @@ class HttpTest extends \PHPUnit_Framework_TestCase
         $this->transportHttp = new Http;
 
         // Create mock request message
-        $this->mockRequestMessage = $this->getMock(
+        $this->mockRequestMessage = Mockery::mock(
             '\Pushy\Transport\RequestMessage'
-        );
+        )->shouldDeferMissing();
     }
 
     /**
