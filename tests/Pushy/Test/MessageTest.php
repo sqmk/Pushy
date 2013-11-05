@@ -10,6 +10,7 @@
 namespace Pushy\Test;
 
 use Pushy\Message;
+use Mockery;
 
 /**
  * Tests for Pushy\Message
@@ -54,9 +55,9 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message = new Message;
 
         // Set mocks
-        $this->mockUser     = $this->getMock('\Pushy\User');
-        $this->mockPriority = $this->getMock('\Pushy\Priority\PriorityInterface');
-        $this->mockSound    = $this->getMock('\Pushy\Sound\SoundInterface');
+        $this->mockUser     = Mockery::mock('\Pushy\User');
+        $this->mockPriority = Mockery::mock('\Pushy\Priority\PriorityInterface');
+        $this->mockSound    = Mockery::mock('\Pushy\Sound\SoundInterface');
     }
 
     /**
