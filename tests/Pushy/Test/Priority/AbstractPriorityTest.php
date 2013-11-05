@@ -9,6 +9,8 @@
 
 namespace Pushy\Test\Priority;
 
+use Mockery;
+
 /**
  * Tests for Pushy\Priority\AbstractPriority
  */
@@ -26,9 +28,8 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        $this->priority = $this->getMockForAbstractClass(
-            '\Pushy\Priority\AbstractPriority'
-        );
+        $this->priority = Mockery::mock('\Pushy\Priority\AbstractPriority')
+            ->shouldDeferMissing();
     }
 
     /**
