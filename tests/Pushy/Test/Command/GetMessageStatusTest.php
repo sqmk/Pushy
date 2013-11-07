@@ -10,6 +10,7 @@
 namespace Pushy\Test\Command;
 
 use Pushy\Command\GetMessageStatus;
+use Mockery;
 
 /**
  * Tests for Pushy\Command\GetMessageStatus
@@ -45,11 +46,10 @@ class GetMessageStatusTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Mock client and transport
-        $this->mockClient = $this->getMockBuilder('\Pushy\Client')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockClient = Mockery::mock('\Pushy\Client')
+            ->shouldIgnoreMissing();
 
-        $this->mockTransport = $this->getMock(
+        $this->mockTransport = Mockery::mock(
             '\Pushy\Transport\TransportInterface'
         );
 
@@ -79,18 +79,18 @@ class GetMessageStatusTest extends \PHPUnit_Framework_TestCase
     public function testSend()
     {
         // Stub mock client getAPiToken and getTransport
-        $this->mockClient->expects($this->once())
-            ->method('getApiToken')
-            ->will($this->returnValue('abc'));
+        $this->mockClient
+            ->shouldReceive('getApiToken')
+            ->andReturn('abc');
 
-        $this->mockClient->expects($this->once())
-            ->method('getTransport')
-            ->will($this->returnValue($this->mockTransport));
+        $this->mockClient
+            ->shouldReceive('getTransport')
+            ->andReturn($this->mockTransport);
 
         // Stub mock transport sendRequest
-        $this->mockTransport->expects($this->once())
-            ->method('sendRequest')
-            ->will($this->returnValue(new \stdClass));
+        $this->mockTransport
+            ->shouldReceive('sendRequest')
+            ->andReturn(new \stdClass);
 
         // Ensure we get a message status back
         $this->assertInstanceOf(
