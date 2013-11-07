@@ -10,6 +10,7 @@
 namespace Pushy\Test\Command;
 
 use Pushy\Command\VerifyUser;
+use Mockery;
 
 /**
  * Tests for Pushy\Command\VerifyUser
@@ -52,17 +53,14 @@ class VerifyUserTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Mock client, transport, and user
-        $this->mockClient = $this->getMockBuilder('\Pushy\Client')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockClient = Mockery::mock('\Pushy\Client')
+            ->shouldIgnoreMissing();
 
-        $this->mockTransport = $this->getMock(
-            '\Pushy\Transport\TransportInterface'
-        );
+        $this->mockTransport = Mockery::mock('\Pushy\Transport\TransportInterface')
+            ->shouldIgnoreMissing();
 
-        $this->mockUser = $this->getMockBuilder('\Pushy\User')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockUser = Mockery::mock('\Pushy\User')
+            ->shouldIgnoreMissing();
 
         // Instantiate verify user status command
         $this->verifyUserCommand = new VerifyUser($this->mockUser);
@@ -76,27 +74,27 @@ class VerifyUserTest extends \PHPUnit_Framework_TestCase
     public function testSend()
     {
         // Stub mock client getAPiToken and getTransport
-        $this->mockClient->expects($this->once())
-            ->method('getApiToken')
-            ->will($this->returnValue('abc'));
+        $this->mockClient
+            ->shouldReceive('getApiToken')
+            ->andReturn('abc');
 
-        $this->mockClient->expects($this->once())
-            ->method('getTransport')
-            ->will($this->returnValue($this->mockTransport));
+        $this->mockClient
+            ->shouldReceive('getTransport')
+            ->andReturn($this->mockTransport);
 
         // Stub mock transport sendRequest
-        $this->mockTransport->expects($this->once())
-            ->method('sendRequest')
-            ->will($this->returnValue(new \stdClass));
+        $this->mockTransport
+            ->shouldReceive('sendRequest')
+            ->andReturn(new \stdClass);
 
         // Stub mock user getId and getDeviceName
-        $this->mockUser->expects($this->once())
-            ->method('getId')
-            ->will($this->returnValue('pQiRzpo4DXghDmr9QzzfQu27cmVRsG'));
+        $this->mockUser
+            ->shouldReceive('getId')
+            ->andReturn('pQiRzpo4DXghDmr9QzzfQu27cmVRsG');
 
-        $this->mockUser->expects($this->once())
-            ->method('getDeviceName')
-            ->will($this->returnValue('droid2'));
+        $this->mockUser
+            ->shouldReceive('getDeviceName')
+            ->andReturn('droid2');
 
         // Ensure we get true back
         $this->assertTrue(
