@@ -10,6 +10,7 @@
 namespace Pushy\Test\Command;
 
 use Pushy\Command\SendMessage;
+use Mockery;
 
 /**
  * Tests for Pushy\Command\SendMessage
@@ -66,28 +67,23 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         // Mock client and transport
-        $this->mockClient = $this->getMockBuilder('\Pushy\Client')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockClient = Mockery::mock('\Pushy\Client')
+            ->shouldIgnoreMissing();
 
-        $this->mockTransport = $this->getMock(
-            '\Pushy\Transport\TransportInterface'
-        );
+        $this->mockTransport = Mockery::mock('\Pushy\Transport\TransportInterface')
+            ->shouldIgnoreMissing();
 
         // Mock message
-        $this->mockMessage = $this->getMock(
-            '\Pushy\Message'
-        );
+        $this->mockMessage = Mockery::mock('\Pushy\Message')
+            ->shouldIgnoreMissing();
 
         // Mock user
-        $this->mockUser = $this->getMock(
-            '\Pushy\User'
-        );
+        $this->mockUser = Mockery::mock('\Pushy\User')
+            ->shouldIgnoreMissing();
 
         // Mock priority
-        $this->mockPriority = $this->getMock(
-            '\Pushy\Priority\PriorityInterface'
-        );
+        $this->mockPriority = Mockery::mock('\Pushy\Priority\PriorityInterface')
+            ->shouldIgnoreMissing();
 
         // Instantiate send message command
         $this->sendMessageCommand = new SendMessage($this->mockMessage);
@@ -101,36 +97,36 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
     public function testSend()
     {
         // Stub mock client getAPiToken and getTransport
-        $this->mockClient->expects($this->once())
-            ->method('getApiToken')
-            ->will($this->returnValue('abc'));
+        $this->mockClient
+            ->shouldReceive('getApiToken')
+            ->andReturn('abc');
 
-        $this->mockClient->expects($this->once())
-            ->method('getTransport')
-            ->will($this->returnValue($this->mockTransport));
+        $this->mockClient
+            ->shouldReceive('getTransport')
+            ->andReturn($this->mockTransport);
 
         // Stub mock transport sendRequest and response object
         $responseObject = (object) [
             'receipt' => 'receiptid'
         ];
 
-        $this->mockTransport->expects($this->once())
-            ->method('sendRequest')
-            ->will($this->returnValue($responseObject));
+        $this->mockTransport
+            ->shouldReceive('sendRequest')
+            ->andReturn($responseObject);
 
         // Stub mock message methods
-        $this->mockMessage->expects($this->any())
-            ->method('getUser')
-            ->will($this->returnValue($this->mockUser));
+        $this->mockMessage
+            ->shouldReceive('getUser')
+            ->andReturn($this->mockUser);
 
-        $this->mockMessage->expects($this->any())
-            ->method('getPriority')
-            ->will($this->returnValue($this->mockPriority));
+        $this->mockMessage
+            ->shouldReceive('getPriority')
+            ->andReturn($this->mockPriority);
 
         // Stub mock priority getApiParameters
-        $this->mockPriority->expects($this->any())
-            ->method('getApiParameters')
-            ->will($this->returnValue([]));
+        $this->mockPriority
+            ->shouldReceive('getApiParameters')
+            ->andReturn([]);
 
         // Ensure we get a receipt back
         $this->assertEquals(
