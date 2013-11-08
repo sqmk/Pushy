@@ -216,3 +216,13 @@ $messageStatus->hasCalledBack();
 // When Pushover contacted the callback URL (DateTime or null)
 $messageStatus->calledBackAt();
 ```
+
+## Command-line Interface
+
+Included in Pushy is a convenient script to send messages from the command line.
+
+You can call it like so:
+
+```sh
+$ bin/pushy --token=yourtokenhere --user-id=useridhere --message="Message here" --title="Title here" --url="http://example.org" --url-title="Example.org" --timestamp=123456 --sound=echo --priority=high
+```
