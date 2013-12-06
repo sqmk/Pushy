@@ -18,6 +18,27 @@ use Pushy\Transport\Exception\ApiException;
 class Http implements TransportInterface
 {
     /**
+     * Verify peer status.
+     *
+     * @var boolean
+     */
+    protected $verifyPeer = true;
+
+    /**
+     * Set verify peer.
+     *
+     * @param boolean $status Status.
+     *
+     * @return self This.
+     */
+    public function setVerifyPeer($status)
+    {
+        $this->verifyPeer = (bool) $status;
+
+        return $this;
+    }
+
+    /**
      * Send request
      *
      * @return array Response data
@@ -29,7 +50,7 @@ class Http implements TransportInterface
         curl_setopt($curl, CURLOPT_URL, $requestMessage->getFullUrl());
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $requestMessage->getMethod());
         curl_setopt($curl, CURLOPT_HEADER, false);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->verifyPeer);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
