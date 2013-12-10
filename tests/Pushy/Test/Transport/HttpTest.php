@@ -45,13 +45,13 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Verify peer.
+     * Test: Set verify peer.
      *
-     * @covers \Pushy\Transport\Http::verifyPeer
+     * @covers \Pushy\Transport\Http::setVerifyPeer
      */
-    public function testVerifyPeer()
+    public function testSetVerifyPeer()
     {
-        $this->transportHttp->verifyPeer(false);
+        $this->transportHttp->setVerifyPeer(false);
     }
 
     /**
