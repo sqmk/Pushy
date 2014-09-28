@@ -61,7 +61,7 @@ class SendMessage implements CommandInterface
 
         // Set optional sound
         if ($sound = $this->message->getSound()) {
-        	$apiParams['sound'] = (string) $sound;
+            $apiParams['sound'] = (string) $sound;
         }
 
         // Create request message
