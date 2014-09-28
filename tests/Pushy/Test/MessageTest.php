@@ -71,11 +71,6 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->assertAttributeInstanceOf(
             '\Pushy\Priority\PriorityInterface', 'priority', $this->message
         );
-
-        // Ensure a sound is automatically set
-        $this->assertAttributeInstanceOf(
-            '\Pushy\Sound\SoundInterface', 'sound', $this->message
-        );
     }
 
     /**

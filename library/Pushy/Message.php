@@ -9,10 +9,9 @@
 
 namespace Pushy;
 
-use Pushy\Priority\PriorityInterface;
 use Pushy\Priority\NormalPriority;
+use Pushy\Priority\PriorityInterface;
 use Pushy\Sound\SoundInterface;
-use Pushy\Sound\PushoverSound;
 
 /**
  * Message
@@ -85,7 +84,6 @@ class Message
         // Set defaults
         $this->setMessage($message);
         $this->setPriority(new NormalPriority);
-        $this->setSound(new PushoverSound);
     }
 
     /**

@@ -9,8 +9,8 @@
 
 namespace Pushy\Command;
 
-use Pushy\Message;
 use Pushy\Client;
+use Pushy\Message;
 use Pushy\Transport\RequestMessage;
 
 /**
@@ -55,10 +55,14 @@ class SendMessage implements CommandInterface
                 'url'       => $this->message->getUrl(),
                 'url_title' => $this->message->getUrlTitle(),
                 'timestamp' => $this->message->getTimestamp(),
-                'sound'     => (string) $this->message->getSound(),
             ],
             $this->message->getPriority()->getApiParameters()
         );
+
+        // Set optional sound
+        if ($sound = $this->message->getSound()) {
+        	$apiParams['sound'] = (string) $sound;
+        }
 
         // Create request message
         $requestMessage = (new RequestMessage)
