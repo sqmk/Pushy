@@ -141,6 +141,7 @@ $receiptCode = $pushy->sendMessage($message);
 #### Priorities
 
 The list of available priorities in Pushy\Priority:
+- LowestPriority
 - LowPriority
 - NormalPriority (default)
 - HighPriority
