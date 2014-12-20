@@ -9,8 +9,8 @@
 
 namespace Pushy\Test\Command;
 
-use Pushy\Command\VerifyUser;
 use Mockery;
+use Pushy\Command\VerifyUser;
 
 /**
  * Tests for Pushy\Command\VerifyUser

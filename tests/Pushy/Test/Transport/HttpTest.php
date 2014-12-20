@@ -9,8 +9,8 @@
 
 namespace Pushy\Test\Transport\Http;
 
-use Pushy\Transport\Http;
 use Mockery;
+use Pushy\Transport\Http;
 
 /**
  * Tests for Pushy\Transport\Http
@@ -45,7 +45,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Set verify peer.
+     * Test: Set verify peer
      *
      * @covers \Pushy\Transport\Http::setVerifyPeer
      */

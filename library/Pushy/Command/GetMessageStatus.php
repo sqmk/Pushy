@@ -9,8 +9,8 @@
 
 namespace Pushy\Command;
 
-use Pushy\MessageStatus;
 use Pushy\Client;
+use Pushy\MessageStatus;
 use Pushy\Transport\RequestMessage;
 
 /**

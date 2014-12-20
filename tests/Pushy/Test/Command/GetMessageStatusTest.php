@@ -9,8 +9,8 @@
 
 namespace Pushy\Test\Command;
 
-use Pushy\Command\GetMessageStatus;
 use Mockery;
+use Pushy\Command\GetMessageStatus;
 
 /**
  * Tests for Pushy\Command\GetMessageStatus

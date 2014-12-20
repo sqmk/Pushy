@@ -9,8 +9,8 @@
 
 namespace Pushy\Test\Command;
 
-use Pushy\Command\SendMessage;
 use Mockery;
+use Pushy\Command\SendMessage;
 
 /**
  * Tests for Pushy\Command\SendMessage
