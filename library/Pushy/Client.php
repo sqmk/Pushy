@@ -9,12 +9,14 @@
 
 namespace Pushy;
 
-use Pushy\Transport\Http;
-use Pushy\Transport\TransportInterface;
+use Pushy\Command\CancelEmergency;
 use Pushy\Command\CommandInterface;
+use Pushy\Command\GetMessageStatus;
 use Pushy\Command\SendMessage;
 use Pushy\Command\VerifyUser;
-use Pushy\Command\GetMessageStatus;
+use Pushy\Transport\Http;
+use Pushy\Transport\TransportInterface;
+
 
 /**
  * Client for Pushover
@@ -125,7 +127,7 @@ class Client
      *
      * @param User $user User
      *
-     * @return bool TRUE if user is valid
+     * @return bool True if user is valid
      */
     public function verifyUser(User $user)
     {
@@ -145,6 +147,20 @@ class Client
     {
         return $this->sendCommand(
             new GetMessageStatus($receipt)
+        );
+    }
+
+    /**
+     * Cancel emergency
+     *
+     * @param $string $receipt Receipt Id
+     *
+     * @return bool True if canceled
+     */
+    public function cancelEmergency($receipt)
+    {
+        return $this->sendCommand(
+            new CancelEmergency($receipt)
         );
     }
 
