@@ -9,8 +9,8 @@
 
 namespace Pushy\Test;
 
-use Pushy\Client;
 use Mockery;
+use Pushy\Client;
 
 /**
  * Tests for Pushy\Client
@@ -187,6 +187,23 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->andReturn(new \stdClass);
 
         $this->client->getMessageStatus('abcdefghijklmnopqrstuvwxyz0123');
+    }
+
+    /**
+     * Test: Cancel emergency
+     *
+     * @covers \Pushy\Client::cancelEmergency
+     */
+    public function testCancelEmergency()
+    {
+        // Transport should at least send a response with status property
+        $this->mockTransport
+            ->shouldReceive('sendRequest')
+            ->andReturn(
+                (object) ['status' => 1]
+            );
+
+        $this->client->cancelEmergency('abcdefghijklmnopqrstuvwxyz0123');
     }
 
     /**
