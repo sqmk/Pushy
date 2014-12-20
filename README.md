@@ -116,7 +116,7 @@ If no exceptions are thrown, the message was sent successfully. No data is retur
 
 #### Emergency priority messages
 
-You can send a message with an emergency priority and get a receipt code. Emergency priorities also have additional options.
+You can send a message with an emergency priority and get a receipt id. Emergency priorities also have additional options.
 
 ```php
 // Create a message with emergency priority
@@ -134,8 +134,14 @@ $message = (new Pushy\Message)
       ->setCallback('http://example.org/api')
   );
 
-// Send message and get receipt code
-$receiptCode = $pushy->sendMessage($message);
+// Send message and get receipt id
+$receiptId = $pushy->sendMessage($message);
+```
+
+With a receipt Id, you can cancel messages with an emergency priority:
+
+```php
+$pushy->cancelEmergency($receiptId);
 ```
 
 #### Priorities
