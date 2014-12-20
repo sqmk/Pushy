@@ -17,7 +17,6 @@ use Pushy\Command\VerifyUser;
 use Pushy\Transport\Http;
 use Pushy\Transport\TransportInterface;
 
-
 /**
  * Client for Pushover
  */
