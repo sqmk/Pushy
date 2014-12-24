@@ -130,8 +130,8 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
 
         // Ensure we get a receipt back
         $this->assertEquals(
-            $this->sendMessageCommand->send($this->mockClient),
-            $responseObject->receipt
+            $responseObject->receipt,
+            $this->sendMessageCommand->send($this->mockClient)
         );
     }
 }

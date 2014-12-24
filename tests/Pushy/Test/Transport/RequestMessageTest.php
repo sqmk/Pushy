@@ -43,14 +43,14 @@ class RequestMessageTest extends \PHPUnit_Framework_TestCase
 
         // Ensure object we get back is the RequestMessage for chaining
         $this->assertEquals(
-            $this->requestMessage->setMethod($method),
-            $this->requestMessage
+            $this->requestMessage,
+            $this->requestMessage->setMethod($method)
         );
 
         // Ensure method set is what is returned from get
         $this->assertEquals(
-            $this->requestMessage->getMethod(),
-            $method
+            $method,
+            $this->requestMessage->getMethod()
         );
     }
 
@@ -66,14 +66,14 @@ class RequestMessageTest extends \PHPUnit_Framework_TestCase
 
         // Ensure object we get back is the RequestMessage for chaining
         $this->assertEquals(
-            $this->requestMessage->setPath($path),
-            $this->requestMessage
+            $this->requestMessage,
+            $this->requestMessage->setPath($path)
         );
 
         // Ensure path set is what is returned from get
         $this->assertEquals(
-            $this->requestMessage->getPath(),
-            $path
+            $path,
+            $this->requestMessage->getPath()
         );
     }
 
@@ -90,8 +90,8 @@ class RequestMessageTest extends \PHPUnit_Framework_TestCase
 
         // Ensure we get back RequestMessage for chaining
         $this->assertEquals(
-            $this->requestMessage->setQueryParam('test', 'value'),
-            $this->requestMessage
+            $this->requestMessage,
+            $this->requestMessage->setQueryParam('test', 'value')
         );
 
         // Ensure query params is no longer empty
@@ -108,8 +108,8 @@ class RequestMessageTest extends \PHPUnit_Framework_TestCase
         $this->requestMessage->setQueryParam('test', 'value');
 
         $this->assertEquals(
-            $this->requestMessage->getFullUrl(),
-            RequestMessage::API_DOMAIN . '?test=value'
+            RequestMessage::API_DOMAIN . '?test=value',
+            $this->requestMessage->getFullUrl()
         );
     }
 
@@ -126,8 +126,8 @@ class RequestMessageTest extends \PHPUnit_Framework_TestCase
 
         // Ensure we get back RequestMessage for chaining
         $this->assertEquals(
-            $this->requestMessage->setPostBodyField('test', 'value'),
-            $this->requestMessage
+            $this->requestMessage,
+            $this->requestMessage->setPostBodyField('test', 'value')
         );
 
         // Ensure query params is no longer empty

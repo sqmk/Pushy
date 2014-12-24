@@ -42,7 +42,7 @@ class AbstractSoundTest extends \PHPUnit_Framework_TestCase
         // Reference locally to access constants
         $sound = $this->sound;
 
-        $this->assertEquals($this->sound->getName(), $sound::NAME);
+        $this->assertEquals($sound::NAME, $this->sound->getName());
     }
 
     /**
@@ -55,6 +55,6 @@ class AbstractSoundTest extends \PHPUnit_Framework_TestCase
         // Reference locally to access constants
         $sound = $this->sound;
 
-        $this->assertEquals((string) $this->sound, $sound::NAME);
+        $this->assertEquals($sound::NAME, (string) $this->sound);
     }
 }

@@ -42,7 +42,7 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
         // Reference locally to access constants
         $priority = $this->priority;
 
-        $this->assertEquals($this->priority->getCode(), $priority::CODE);
+        $this->assertEquals($priority::CODE, $this->priority->getCode());
     }
 
     /**
@@ -53,10 +53,10 @@ class AbstractPriorityTest extends \PHPUnit_Framework_TestCase
     public function testGetApiParameters()
     {
         $this->assertEquals(
-            $this->priority->getApiParameters(),
             [
                 'priority' => $this->priority->getCode()
-            ]
+            ],
+            $this->priority->getApiParameters()
         );
     }
 }

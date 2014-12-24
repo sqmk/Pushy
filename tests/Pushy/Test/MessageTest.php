@@ -84,8 +84,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setUser($this->mockUser);
 
         $this->assertEquals(
-            $this->message->getUser(),
-            $this->mockUser
+            $this->mockUser,
+            $this->message->getUser()
         );
     }
 
@@ -102,8 +102,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setMessage($message);
 
         $this->assertEquals(
-            $this->message->getMessage(),
-            $message
+            $message,
+            $this->message->getMessage()
         );
     }
 
@@ -132,8 +132,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setTitle($title);
 
         $this->assertEquals(
-            $this->message->getTitle(),
-            $title
+            $title,
+            $this->message->getTitle()
         );
     }
 
@@ -162,8 +162,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setUrl($url);
 
         $this->assertEquals(
-            $this->message->getUrl(),
-            $url
+            $url,
+            $this->message->getUrl()
         );
     }
 
@@ -192,8 +192,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setUrlTitle($urlTitle);
 
         $this->assertEquals(
-            $this->message->getUrlTitle(),
-            $urlTitle
+            $urlTitle,
+            $this->message->getUrlTitle()
         );
     }
 
@@ -220,8 +220,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setPriority($this->mockPriority);
 
         $this->assertEquals(
-            $this->message->getPriority(),
-            $this->mockPriority
+            $this->mockPriority,
+            $this->message->getPriority()
         );
     }
 
@@ -238,8 +238,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setTimestamp($time);
 
         $this->assertEquals(
-            $this->message->getTimestamp(),
-            $time
+            $time,
+            $this->message->getTimestamp()
         );
     }
 
@@ -254,8 +254,8 @@ class MessageTest extends \PHPUnit_Framework_TestCase
         $this->message->setSound($this->mockSound);
 
         $this->assertEquals(
-            $this->message->getSound(),
-            $this->mockSound
+            $this->mockSound,
+            $this->message->getSound()
         );
     }
 }
