@@ -57,6 +57,7 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
      *
      * @var \Pushy\Sound\AbstractSound
      */
+    protected $mockSound;
 
     /**
      * Mock priority
@@ -88,7 +89,7 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
             ->shouldIgnoreMissing();
 
         // Mock sound
-        $this->mockSoudn = Mockery::mock('\Pushy\Sound\AbstractSound')
+        $this->mockSound = Mockery::mock('\Pushy\Sound\AbstractSound')
             ->shouldIgnoreMissing();
 
         // Mock priority
@@ -133,6 +134,11 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
             ->getMock()
             ->shouldReceive('getPriority')
             ->andReturn($this->mockPriority);
+
+        // Stub sound
+        $this->mockSound
+            ->shouldReceive('__toString')
+            ->andReturn('soundname');
 
         // Stub mock priority getApiParameters
         $this->mockPriority
