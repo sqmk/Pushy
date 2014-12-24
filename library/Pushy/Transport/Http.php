@@ -15,7 +15,7 @@ use Pushy\Transport\Exception\ApiException;
 /**
  * Basic HTTP Client
  */
-class Http implements TransportInterface
+class Http extends AbstractTransport
 {
     /**
      * Verify peer status.
@@ -46,13 +46,23 @@ class Http implements TransportInterface
     public function sendRequest(RequestMessage $requestMessage)
     {
         // Initialize curl and set options
-        $curl = curl_init();
+        $curl    = curl_init();
         curl_setopt($curl, CURLOPT_URL, $requestMessage->getFullUrl());
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $requestMessage->getMethod());
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, $this->verifyPeer);
         curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt(
+            $curl,
+            CURLOPT_HEADERFUNCTION,
+            function($curl, $header) use (&$headers) {
+                list($key, $value) = explode(': ', $header);
+                $headers[$key] = trim($value);
+
+                return strlen($header);
+            }
+        );
 
         // Set JSON body if available
         if ($body = $requestMessage->getPostBody()) {
@@ -65,6 +75,9 @@ class Http implements TransportInterface
 
         curl_close($curl);
 
+        // Parse headers for call stats
+        $this->processHeaders($headers);
+
         // Throw connection exception if no status code or json response
         if ($jsonResponse === null || $statusCode == 0) {
             throw new ConnectionException;
@@ -76,5 +89,25 @@ class Http implements TransportInterface
         }
 
         return $jsonResponse;
+    }
+
+    /**
+     * Process headers
+     *
+     * @param array $headers Headers
+     */
+    protected function processHeaders(array $headers)
+    {
+        if (isset($headers['X-Limit-App-Limit'])) {
+            $this->appLimit = (int) $headers['X-Limit-App-Limit'];
+        }
+
+        if (isset($headers['X-Limit-App-Remaining'])) {
+            $this->appRemaining = (int) $headers['X-Limit-App-Remaining'];
+        }
+
+        if (isset($headers['X-Limit-App-Reset'])) {
+            $this->appReset = (int) $headers['X-Limit-App-Reset'];
+        }
     }
 }

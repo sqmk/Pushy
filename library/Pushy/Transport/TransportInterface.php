@@ -15,6 +15,27 @@ namespace Pushy\Transport;
 interface TransportInterface
 {
     /**
+     * Get app call limit
+     *
+     * @return int Call limit
+     */
+    public function getAppLimit();
+
+    /**
+     * Get app remaining calls
+     *
+     * @return int Calls remaining
+     */
+    public function getAppRemaining();
+
+    /**
+     * Get app call reset timestamp
+     *
+     * @return int Timestamp
+     */
+    public function getAppReset();
+
+    /**
      * Send a request
      *
      * @param RequestMessage $requestMessage Request message

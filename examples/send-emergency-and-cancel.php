@@ -10,6 +10,8 @@ require_once 'common.php';
 $pushy = new Pushy\Client($appKey);
 $user  = new Pushy\User($userKey, $userDevice);
 
+echo 'Sending an emergency message and canceling immediately.', "\n";
+
 // Build message with emergency priority
 $message = (new Pushy\Message)
     ->setTitle('Emergency test')
@@ -22,3 +24,7 @@ $receiptId = $pushy->sendMessage($message);
 
 // Immediately cancel the emergency
 $pushy->cancelEmergency($receiptId);
+
+echo 'Call limit: ', $pushy->getAppLimit(), "\n",
+    'Calls remaining: ', $pushy->getAppRemaining(), "\n",
+    'Calls reset: ', $pushy->getAppReset(), "\n";

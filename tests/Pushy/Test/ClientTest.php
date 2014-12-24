@@ -104,8 +104,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->client->setApiToken($apiToken);
 
         $this->assertEquals(
-            $this->client->getApiToken(),
-            $apiToken
+            $apiToken,
+            $this->client->getApiToken()
         );
     }
 
@@ -134,8 +134,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->client->setTransport($mockTransport);
 
         $this->assertEquals(
-            $this->client->getTransport(),
-            $mockTransport
+            $mockTransport,
+            $this->client->getTransport()
         );
     }
 
@@ -207,6 +207,60 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test: Get app limit
+     *
+     * @covers \Pushy\Client::getAppLimit
+     */
+    public function testGetAppLimit()
+    {
+        $this->mockTransport
+            ->shouldReceive('getAppLimit')
+            ->andReturn(7500);
+
+        // Assert we get right reset value back
+        $this->assertEquals(
+            7500,
+            $this->client->getAppLimit()
+        );
+    }
+
+    /**
+     * Test: Get app remaining
+     *
+     * @covers \Pushy\Client::getAppLimit
+     */
+    public function testGetAppRemaining()
+    {
+        $this->mockTransport
+            ->shouldReceive('getAppRemaining')
+            ->andReturn(5235);
+
+        // Assert we get right reset value back
+        $this->assertEquals(
+            5235,
+            $this->client->getAppRemaining()
+        );
+    }
+
+    /**
+     * Test: Get app reset
+     *
+     * @covers \Pushy\Client::getAppReset
+     */
+    public function testGetAppReset()
+    {
+        $this->mockTransport
+            ->shouldReceive('getAppReset')
+            ->andReturn(1241115213);
+
+        // Assert we get right reset value back
+        $this->assertEquals(
+            1241115213,
+            $this->client->getAppReset()
+        );
+    }
+
+    /**
      * Test: Send command
      *
      * @covers \Pushy\Client::sendCommand
@@ -225,8 +279,8 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         // Assert return value of command matches dummy
         $this->assertEquals(
-            $this->client->sendCommand($mockCommand),
-            $dummyValue
+            $dummyValue,
+            $this->client->sendCommand($mockCommand)
         );
     }
 }

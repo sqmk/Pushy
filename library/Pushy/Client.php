@@ -164,6 +164,36 @@ class Client
     }
 
     /**
+     * Get app limit
+     *
+     * @return int Call limit
+     */
+    public function getAppLimit()
+    {
+        return $this->getTransport()->getAppLimit();
+    }
+
+    /**
+     * Get app remaining
+     *
+     * @return int Calls remaining
+     */
+    public function getAppRemaining()
+    {
+        return $this->getTransport()->getAppRemaining();
+    }
+
+    /**
+     * Get app reset date
+     *
+     * @return int Calls reset timestamp
+     */
+    public function getAppReset()
+    {
+        return $this->getTransport()->getAppReset();
+    }
+
+    /**
      * Send command
      *
      * @param CommandInterface $command Command to send
