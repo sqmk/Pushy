@@ -223,6 +223,23 @@ $messageStatus->hasCalledBack();
 $messageStatus->calledBackAt();
 ```
 
+## Getting application limitations
+
+[Pushover.net](https://pushover.net) allows you to send 7,500 messages per month for each application you own. Sending more than that limit will result in rejected requests from the service.
+
+Pushy provides 3 convenience methods on the client to retrieve your app's message limit, remaining messages, and timestamp for when the limit is reset. These values are available after making any other request to Pushover.
+
+```php
+// Call limit for the application per month.
+$pushy->getAppLimit();
+
+// Calls remaining for the month.
+$pushy->getAppRemaining();
+
+// Timestamp for when calls remaining is reset to limit.
+$pushy->getAppReset();
+```
+
 ## Command-line Interface
 
 Included in Pushy is a convenient script to send messages from the command line.
