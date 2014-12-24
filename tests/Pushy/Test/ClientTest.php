@@ -227,7 +227,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /**
      * Test: Get app remaining
      *
-     * @covers \Pushy\Client::getAppLimit
+     * @covers \Pushy\Client::getAppRemaining
      */
     public function testGetAppRemaining()
     {

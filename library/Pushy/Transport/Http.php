@@ -47,6 +47,7 @@ class Http extends AbstractTransport
     {
         // Initialize curl and set options
         $curl    = curl_init();
+        $headers = [];
         curl_setopt($curl, CURLOPT_URL, $requestMessage->getFullUrl());
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, $requestMessage->getMethod());
         curl_setopt($curl, CURLOPT_HEADER, false);
