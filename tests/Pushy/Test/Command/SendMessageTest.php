@@ -53,6 +53,12 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
     protected $mockUser;
 
     /**
+     * Mock sound
+     *
+     * @var \Pushy\Sound\AbstractSound
+     */
+
+    /**
      * Mock priority
      *
      * @var \Pushy\Priority\PriorityInterface
@@ -81,6 +87,10 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
         $this->mockUser = Mockery::mock('\Pushy\User')
             ->shouldIgnoreMissing();
 
+        // Mock sound
+        $this->mockSoudn = Mockery::mock('\Pushy\Sound\AbstractSound')
+            ->shouldIgnoreMissing();
+
         // Mock priority
         $this->mockPriority = Mockery::mock('\Pushy\Priority\PriorityInterface')
             ->shouldIgnoreMissing();
@@ -99,9 +109,8 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
         // Stub mock client getAPiToken and getTransport
         $this->mockClient
             ->shouldReceive('getApiToken')
-            ->andReturn('abc');
-
-        $this->mockClient
+            ->andReturn('abc')
+            ->getMock()
             ->shouldReceive('getTransport')
             ->andReturn($this->mockTransport);
 
@@ -117,9 +126,11 @@ class SendMessageTest extends \PHPUnit_Framework_TestCase
         // Stub mock message methods
         $this->mockMessage
             ->shouldReceive('getUser')
-            ->andReturn($this->mockUser);
-
-        $this->mockMessage
+            ->andReturn($this->mockUser)
+            ->getMock()
+            ->shouldReceive('getSound')
+            ->andReturn($this->mockSound)
+            ->getMock()
             ->shouldReceive('getPriority')
             ->andReturn($this->mockPriority);
 

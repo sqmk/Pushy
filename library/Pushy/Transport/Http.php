@@ -57,9 +57,9 @@ class Http extends AbstractTransport
         curl_setopt(
             $curl,
             CURLOPT_HEADERFUNCTION,
-            function($curl, $header) use (&$headers) {
-                list($key, $value) = explode(': ', $header);
-                $headers[$key] = trim($value);
+            function ($curl, $header) use (&$headers) {
+                $parts = explode(': ', $header);
+                $headers[$parts[0]] = isset($parts[1]) ? trim($parts[1]) : null;
 
                 return strlen($header);
             }
