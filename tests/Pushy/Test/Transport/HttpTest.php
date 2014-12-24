@@ -58,6 +58,7 @@ class HttpTest extends \PHPUnit_Framework_TestCase
      * Test: Send request
      *
      * @covers \Pushy\Transport\Http::sendRequest
+     * @covers \Pushy\Transport\Http::processHeaders
      *
      * @expectedException \Pushy\Transport\Exception\ConnectionException
      */
