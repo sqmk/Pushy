@@ -116,6 +116,7 @@ class EmergencyPriority extends AbstractPriority
      * Set callback URL
      *
      * @param string $url Callback URL
+     * @return $this
      */
     public function setCallback($url)
     {

@@ -20,6 +20,7 @@ class PriorityFactory
      * @param string $name Priority name
      *
      * @return AbstractPriority Priority
+     * @throws \Exception
      */
     public static function createPriority($name)
     {

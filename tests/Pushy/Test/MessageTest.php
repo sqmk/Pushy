@@ -108,18 +108,6 @@ class MessageTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test: Set invalid length message
-     *
-     * @covers \Pushy\Message::setMessage
-     *
-     * @expectedException \InvalidArgumentException
-     */
-    public function testSetMessageWithInvalidLength()
-    {
-        $this->message->setMessage(str_repeat('X', 513));
-    }
-
-    /**
      * Test: Get/Set title
      *
      * @covers \Pushy\Message::getTitle

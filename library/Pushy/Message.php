@@ -129,13 +129,6 @@ class Message
      */
     public function setMessage($message)
     {
-        // Message must be of valid length
-        if (strlen($message) > 512) {
-            throw new \InvalidArgumentException(
-                'Message may not exceed 512 characters'
-            );
-        }
-
         $this->message = (string) $message;
 
         return $this;

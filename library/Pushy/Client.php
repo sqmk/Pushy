@@ -152,7 +152,7 @@ class Client
     /**
      * Cancel emergency
      *
-     * @param $string $receipt Receipt Id
+     * @param string $receipt Receipt Id
      *
      * @return bool True if canceled
      */
