@@ -54,7 +54,7 @@ class User
     /**
      * Set user Id
      *
-     * @param string $key User key
+     * @param string $id User id
      *
      * @return self This object
      */

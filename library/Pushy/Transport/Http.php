@@ -41,7 +41,11 @@ class Http extends AbstractTransport
     /**
      * Send request
      *
+     * @param RequestMessage $requestMessage
+     *
      * @return array Response data
+     * @throws ApiException
+     * @throws ConnectionException
      */
     public function sendRequest(RequestMessage $requestMessage)
     {

@@ -60,7 +60,9 @@ class RequestMessage
     /**
      * Set request method
      *
-     * @return self This object
+     * @param string $method
+     *
+     * @return RequestMessage This object
      */
     public function setMethod($method)
     {
@@ -82,7 +84,9 @@ class RequestMessage
     /**
      * Set request path
      *
-     * @return self This object
+     * @param string $path
+     *
+     * @return RequestMessage This object
      */
     public function setPath($path)
     {
