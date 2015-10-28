@@ -1,4 +1,4 @@
-# Pushy - A PHP client for Pushover
+# Pushy - Pushover.net client for PHP
 
 [![Latest Stable Version](https://poser.pugx.org/sqmk/Pushy/version)](https://packagist.org/packages/sqmk/Pushy)
 [![Build Status](https://api.travis-ci.org/sqmk/Pushy.svg?branch=master)](https://travis-ci.org/sqmk/Pushy)
