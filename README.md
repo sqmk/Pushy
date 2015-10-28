@@ -1,6 +1,7 @@
 # Pushy - A PHP client for Pushover
 
-Master: [![Build Status](https://travis-ci.org/sqmk/Pushy.png?branch=master)](https://travis-ci.org/sqmk/Pushy)
+[![Latest Stable Version](https://poser.pugx.org/sqmk/Pushy/version)](https://packagist.org/packages/sqmk/Pushy)
+[![Build Status](https://api.travis-ci.org/sqmk/Pushy.svg?branch=master)](https://travis-ci.org/sqmk/Pushy)
 
 ## Introduction
 
@@ -12,7 +13,7 @@ Interested in sending real-time mobile notifications to your iOS or Android devi
 
 ## Requirements
 
-- PHP 5.4
+- PHP 5.4+
 - cURL extension
 
 ## Installation
