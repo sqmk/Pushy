@@ -38,7 +38,10 @@ class User
     {
         // Set user Id and device
         $this->setId($id);
-        $this->setDeviceName($deviceName);
+        
+        if ($deviceName) {
+            $this->setDeviceName($deviceName);
+        }
     }
 
     /**
