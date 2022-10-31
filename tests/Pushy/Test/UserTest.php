@@ -76,6 +76,23 @@ class UserTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test: Get/Set Multiple Device Name
+     *
+     * @covers \Pushy\User::getDeviceName
+     * @covers \Pushy\User::setDeviceName
+     */
+    public function testGetSetMultipleDeviceName()
+    {
+        $deviceName = 'test-device';
+        $deviceName2 = 'my-test';
+
+        $this->user->setDeviceName($deviceName)
+                   ->setDeviceName($deviceName2);
+
+        $this->assertEquals($deviceName . ',' . $deviceName2, $this->user->getDeviceName());
+    }
+
+    /**
      * Test: Set device name with an invalid value
      *
      * @covers \Pushy\User::setDeviceName

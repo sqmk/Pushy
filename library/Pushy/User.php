@@ -24,9 +24,9 @@ class User
     /**
      * User's device name
      *
-     * @var string
+     * @var array
      */
-    protected $deviceName;
+    protected $deviceName = array();
 
     /**
      * Instantiate a user object
@@ -38,7 +38,10 @@ class User
     {
         // Set user Id and device
         $this->setId($id);
-        $this->setDeviceName($deviceName);
+        
+        if ($deviceName) {
+            $this->setDeviceName($deviceName);
+        }
     }
 
     /**
@@ -79,7 +82,7 @@ class User
      */
     public function getDeviceName()
     {
-        return $this->deviceName;
+        return implode(',', $this->deviceName);
     }
 
     /**
@@ -98,8 +101,10 @@ class User
                 . ' and contain character set [A-Za-z0-9-]'
             );
         }
-
-        $this->deviceName = (string) $deviceName;
+    
+        if (!in_array($deviceName, $this->deviceName)) {
+            $this->deviceName[] = (string) $deviceName;
+        }
 
         return $this;
     }
